@@ -44,6 +44,32 @@
     color: var(--muted);
     font-size: 14px;
   }
+  .langswitch {
+    display: inline-flex;
+    gap: 4px;
+    margin-bottom: 22px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px;
+  }
+  .langswitch button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 6px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .langswitch button.active {
+    background: var(--accent);
+    color: #fff;
+  }
   main {
     max-width: 680px;
     margin: 0 auto;
@@ -80,107 +106,268 @@
     font-size: 12px;
     padding-bottom: 40px;
   }
+  /* Standardmäßig Deutsch zeigen, Englisch ausblenden (No-JS-Fallback ohne Flackern).
+     Das JS überschreibt danach per Inline-Style (gewinnt über diese Regel). */
+  [data-lang="en"] { display: none; }
 </style>
 </head>
 <body>
 
 <div class="hero">
   <div class="badge">GymTrackr · MG.Media</div>
-  <h1>Datenschutzerklärung</h1>
-  <div class="meta">Stand: 21. Juli 2026</div>
+  <h1><span data-lang="de">Datenschutzerklärung</span><span data-lang="en">Privacy Policy</span></h1>
+  <div class="meta">
+    <span data-lang="de">Stand: 24. Juli 2026</span>
+    <span data-lang="en">Last updated: 24 July 2026</span>
+  </div>
 </div>
 
 <main>
 
-  <div class="card">
-    <h2>Verantwortlicher</h2>
-    <p class="contact-line">
-      MG.Media<br>
-      Matthias Geisler<br>
-      Lindenweg 30/1<br>
-      74182 Obersulm<br>
-      Deutschland<br>
-      E-Mail: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
-    </p>
+  <div style="text-align:center;">
+    <div class="langswitch" role="group" aria-label="Language">
+      <button type="button" data-set-lang="de">DE</button>
+      <button type="button" data-set-lang="en">EN</button>
+    </div>
   </div>
 
-  <div class="card">
-    <h2>Welche Daten verarbeitet GymTrackr?</h2>
-    <p>
-      GymTrackr ist eine Trainings-App, die <strong>ausschließlich lokal auf deinem Gerät</strong> arbeitet.
-      Es gibt keinen Server, keine Cloud-Datenbank und keine Übertragung deiner Trainingsdaten an uns oder Dritte.
-    </p>
-    <p>Folgende Daten werden lokal auf deinem Gerät gespeichert (vergleichbar mit anderen Apps, die offline funktionieren):</p>
-    <ul>
-      <li>Von dir angelegte Übungen, Trainingspläne und dein Trainingsverlauf (Sätze, Wiederholungen, Gewichte, Notizen)</li>
-      <li>Deine App-Einstellungen (z. B. Sprache, Bildschirm-aktiv-halten, Pausenzeiten)</li>
-    </ul>
-    <p>
-      Diese Daten verbleiben <strong>ausschließlich auf deinem Smartphone</strong>. Wir haben keinen Zugriff darauf,
-      sehen sie nicht ein und können sie nicht auslesen. Löschst du die App, werden auch diese Daten gelöscht.
-    </p>
+  <!-- ============ DEUTSCH ============ -->
+  <div data-lang="de">
+    <div class="card">
+      <h2>Verantwortlicher</h2>
+      <p class="contact-line">
+        MG.Media<br>
+        Matthias Geisler<br>
+        Lindenweg 30/1<br>
+        74182 Obersulm<br>
+        Deutschland<br>
+        E-Mail: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Welche Daten verarbeitet GymTrackr?</h2>
+      <p>
+        GymTrackr ist eine Trainings-App, die <strong>ausschließlich lokal auf deinem Gerät</strong> arbeitet.
+        Es gibt keinen Server, keine Cloud-Datenbank und keine Übertragung deiner Trainingsdaten an uns oder Dritte.
+      </p>
+      <p>Folgende Daten werden lokal auf deinem Gerät gespeichert (vergleichbar mit anderen Apps, die offline funktionieren):</p>
+      <ul>
+        <li>Von dir angelegte Übungen, Trainingspläne und dein Trainingsverlauf (Sätze, Wiederholungen, Gewichte, Notizen)</li>
+        <li>Deine App-Einstellungen (z. B. Sprache, Bildschirm-aktiv-halten, Pausenzeiten)</li>
+      </ul>
+      <p>
+        Diese Daten verbleiben <strong>ausschließlich auf deinem Smartphone</strong>. Wir haben keinen Zugriff darauf,
+        sehen sie nicht ein und können sie nicht auslesen. Löschst du die App, werden auch diese Daten gelöscht.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Keine Analyse, kein Tracking, keine Werbung</h2>
+      <p>GymTrackr enthält:</p>
+      <ul>
+        <li>keine Analyse- oder Tracking-Tools</li>
+        <li>keine Werbung</li>
+        <li>keine Weitergabe von Daten an Dritte</li>
+        <li>keine Nutzerkonten oder Login</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Feedback-Funktion</h2>
+      <p>
+        Wenn du über die Funktion "Feedback &amp; Vorschläge" in den Einstellungen eine Nachricht sendest, öffnet die App
+        lediglich dein eigenes E-Mail-Programm mit einem vorausgefüllten Entwurf an
+        <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>. Die App selbst sendet nichts automatisch –
+        du entscheidest aktiv, ob und was du per E-Mail abschickst. Es gelten dann die Datenschutzbestimmungen deines
+        E-Mail-Anbieters für den Versand dieser Nachricht.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Backups &amp; Teilen</h2>
+      <p>
+        Über die Export-Funktion in den Einstellungen kannst du eine Backup-Datei mit deinen Trainingsdaten erstellen.
+        Zusätzlich kannst du nach einem Workout über „Training teilen" eine kurze Text-Zusammenfassung deines Trainings
+        weitergeben.
+      </p>
+      <p>
+        In beiden Fällen wird der Inhalt lokal erzeugt und nur dann weitergegeben, wenn du ihn aktiv über das
+        Teilen-Menü deines Geräts versendest – du entscheidest selbst, wohin (z. B. Dateien-App, Messenger, Cloud-Speicher)
+        und mit wem. Beim Weitergeben an einen Dienst eines Dritten gelten dessen Datenschutzbestimmungen.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Berechtigungen</h2>
+      <p>
+        GymTrackr benötigt keinen Zugriff auf Kamera, Standort, Kontakte oder Mikrofon.
+      </p>
+      <p>
+        Optional kannst du <strong>Benachrichtigungen</strong> erlauben. Sie werden ausschließlich lokal auf deinem
+        Gerät genutzt – für zwei Zwecke:
+      </p>
+      <ul>
+        <li>um dich am Ende einer Trainingspause zu erinnern, und</li>
+        <li>während ein Training läuft, als dauerhafte Benachrichtigung, die den Pausentimer anzeigt und über die du
+          Sätze abhaken sowie Pausen überspringen kannst – auch direkt vom Sperrbildschirm.</li>
+      </ul>
+      <p>
+        Für die laufende Trainings-Benachrichtigung wird während des Trainings ein <strong>Vordergrund-Dienst</strong>
+        (Foreground Service) verwendet. Dabei werden <strong>keine Daten übertragen</strong>. Die Benachrichtigungen
+        sind freiwillig und lassen sich in den App-Einstellungen sowie in den Systemeinstellungen jederzeit abschalten.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Änderungen dieser Datenschutzerklärung</h2>
+      <p>
+        Sollten sich zukünftig Funktionen ändern, die Daten verarbeiten (z. B. eine optionale Cloud-Synchronisierung),
+        aktualisieren wir diese Erklärung entsprechend und kennzeichnen das Datum oben.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Kontakt</h2>
+      <p>Bei Fragen zum Datenschutz erreichst du uns unter: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a></p>
+    </div>
   </div>
 
-  <div class="card">
-    <h2>Keine Analyse, kein Tracking, keine Werbung</h2>
-    <p>GymTrackr enthält:</p>
-    <ul>
-      <li>keine Analyse- oder Tracking-Tools</li>
-      <li>keine Werbung</li>
-      <li>keine Weitergabe von Daten an Dritte</li>
-      <li>keine Nutzerkonten oder Login</li>
-    </ul>
-  </div>
+  <!-- ============ ENGLISH ============ -->
+  <div data-lang="en">
+    <div class="card">
+      <h2>Data Controller</h2>
+      <p class="contact-line">
+        MG.Media<br>
+        Matthias Geisler<br>
+        Lindenweg 30/1<br>
+        74182 Obersulm<br>
+        Germany<br>
+        Email: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
+      </p>
+    </div>
 
-  <div class="card">
-    <h2>Feedback-Funktion</h2>
-    <p>
-      Wenn du über die Funktion "Feedback &amp; Vorschläge" in den Einstellungen eine Nachricht sendest, öffnet die App
-      lediglich dein eigenes E-Mail-Programm mit einem vorausgefüllten Entwurf an
-      <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>. Die App selbst sendet nichts automatisch –
-      du entscheidest aktiv, ob und was du per E-Mail abschickst. Es gelten dann die Datenschutzbestimmungen deines
-      E-Mail-Anbieters für den Versand dieser Nachricht.
-    </p>
-  </div>
+    <div class="card">
+      <h2>What data does GymTrackr process?</h2>
+      <p>
+        GymTrackr is a workout app that runs <strong>exclusively locally on your device</strong>.
+        There is no server, no cloud database and no transmission of your workout data to us or any third party.
+      </p>
+      <p>The following data is stored locally on your device (like other apps that work offline):</p>
+      <ul>
+        <li>Exercises, workout plans and workout history you create (sets, reps, weights, notes)</li>
+        <li>Your app settings (e.g. language, keep screen awake, rest times)</li>
+      </ul>
+      <p>
+        This data remains <strong>exclusively on your smartphone</strong>. We have no access to it, cannot view it
+        and cannot read it. If you delete the app, this data is deleted as well.
+      </p>
+    </div>
 
-  <div class="card">
-    <h2>Backups (Export &amp; Import)</h2>
-    <p>
-      Über die Export-Funktion in den Einstellungen kannst du eine Backup-Datei mit deinen Trainingsdaten erstellen.
-      Diese Datei wird lokal erzeugt und über das Teilen-Menü deines Geräts weitergegeben – du entscheidest selbst,
-      wo du sie speicherst (z. B. Dateien-App, Cloud-Speicher) oder mit wem du sie teilst. Beim Speichern in einem
-      Cloud-Dienst gelten die Datenschutzbestimmungen des jeweiligen Anbieters.
-    </p>
-  </div>
+    <div class="card">
+      <h2>No analytics, no tracking, no advertising</h2>
+      <p>GymTrackr contains:</p>
+      <ul>
+        <li>no analytics or tracking tools</li>
+        <li>no advertising</li>
+        <li>no sharing of data with third parties</li>
+        <li>no user accounts or login</li>
+      </ul>
+    </div>
 
-  <div class="card">
-    <h2>Berechtigungen</h2>
-    <p>
-      GymTrackr benötigt keinen Zugriff auf Kamera, Standort, Kontakte oder Mikrofon.
-    </p>
-    <p>
-      Optional kannst du <strong>Benachrichtigungen</strong> erlauben: Diese werden ausschließlich lokal auf deinem
-      Gerät geplant, um dich am Ende einer Trainingspause zu erinnern. Es werden dabei keine Daten übertragen.
-      Diese Berechtigung ist freiwillig und kann jederzeit in den Systemeinstellungen widerrufen werden.
-    </p>
-  </div>
+    <div class="card">
+      <h2>Feedback function</h2>
+      <p>
+        When you send a message via "Feedback &amp; suggestions" in the settings, the app merely opens your own email
+        program with a pre-filled draft to <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>.
+        The app itself does not send anything automatically – you actively decide whether and what you send by email.
+        Your email provider's privacy terms then apply to sending this message.
+      </p>
+    </div>
 
-  <div class="card">
-    <h2>Änderungen dieser Datenschutzerklärung</h2>
-    <p>
-      Sollten sich zukünftig Funktionen ändern, die Daten verarbeiten (z. B. eine optionale Cloud-Synchronisierung),
-      aktualisieren wir diese Erklärung entsprechend und kennzeichnen das Datum oben.
-    </p>
-  </div>
+    <div class="card">
+      <h2>Backups &amp; sharing</h2>
+      <p>
+        Using the export feature in the settings, you can create a backup file with your workout data. In addition,
+        after a workout you can share a short text summary of your session via "Share workout".
+      </p>
+      <p>
+        In both cases the content is created locally and only passed on if you actively send it via your device's
+        share menu – you decide where (e.g. Files app, messenger, cloud storage) and with whom. When passing it to a
+        third-party service, that provider's privacy terms apply.
+      </p>
+    </div>
 
-  <div class="card">
-    <h2>Kontakt</h2>
-    <p>Bei Fragen zum Datenschutz erreichst du uns unter: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a></p>
+    <div class="card">
+      <h2>Permissions</h2>
+      <p>
+        GymTrackr does not require access to your camera, location, contacts or microphone.
+      </p>
+      <p>
+        Optionally, you can allow <strong>notifications</strong>. They are used exclusively locally on your device –
+        for two purposes:
+      </p>
+      <ul>
+        <li>to remind you when a rest period ends, and</li>
+        <li>while a workout is running, as an ongoing notification that shows the rest timer and lets you check off
+          sets and skip rest – including directly from the lock screen.</li>
+      </ul>
+      <p>
+        For the ongoing workout notification, a <strong>foreground service</strong> is used during the workout.
+        <strong>No data is transmitted</strong>. The notifications are optional and can be turned off at any time
+        in the app settings or the system settings.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Changes to this privacy policy</h2>
+      <p>
+        If features that process data change in the future (e.g. an optional cloud sync), we will update this policy
+        accordingly and mark the date at the top.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>If you have any privacy questions, reach us at: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a></p>
+    </div>
   </div>
 
 </main>
 
 <footer>GymTrackr · MG.Media · 2026</footer>
+
+<script>
+  (function () {
+    var titles = { de: 'Datenschutzerklärung – GymTrackr', en: 'Privacy Policy – GymTrackr' };
+    function setLang(lang) {
+      if (lang !== 'de' && lang !== 'en') lang = 'de';
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+      var nodes = document.querySelectorAll('[data-lang]');
+      for (var i = 0; i < nodes.length; i++) {
+        var el = nodes[i];
+        if (el.getAttribute('data-lang') === lang) {
+          el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      }
+      var btns = document.querySelectorAll('[data-set-lang]');
+      for (var j = 0; j < btns.length; j++) {
+        btns[j].classList.toggle('active', btns[j].getAttribute('data-set-lang') === lang);
+      }
+      try { localStorage.setItem('gt_privacy_lang', lang); } catch (e) {}
+    }
+    var saved;
+    try { saved = localStorage.getItem('gt_privacy_lang'); } catch (e) {}
+    var initial = saved || ((navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en');
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+    });
+    setLang(initial);
+  })();
+</script>
 
 </body>
 </html>
