@@ -57,6 +57,16 @@
     <p lang="en" style="margin-top:10px">This page does not exist. Go to the <a href="/en/">home page</a> or the <a href="/en/privacy/">privacy policy</a>.</p>
   </div>
 </main>
+<script>
+  (function () {
+    var routes = ["/","/en/","/datenschutz/","/en/privacy/","/datenloeschung/","/en/data-deletion/","/impressum/","/en/imprint/"];
+    var aliases = {"/privacy/":"/en/privacy/","/data-deletion/":"/en/data-deletion/","/imprint/":"/en/imprint/","/en/datenschutz/":"/en/privacy/","/en/datenloeschung/":"/en/data-deletion/","/en/impressum/":"/en/imprint/","/privacy-policy/":"/datenschutz/","/datenloeschung.html/":"/datenloeschung/"};
+    var p = location.pathname.toLowerCase().replace(/\.html$/, '');
+    if (p.slice(-1) !== '/') p += '/';
+    if (aliases[p]) p = aliases[p];
+    if (routes.indexOf(p) > -1 && p !== location.pathname) location.replace(p + location.search + location.hash);
+  })();
+</script>
 <nav class="sitenav" aria-label="Seiten"><a href="/">Start</a> · <a href="/datenschutz/">Datenschutzerklärung</a> · <a href="/datenloeschung/">Datenlöschung</a> · <a href="/impressum/">Impressum</a> · <a href="/en/" lang="en">English</a></nav>
 <footer>GymWerk · MG.Media · 2026</footer>
 </body>
