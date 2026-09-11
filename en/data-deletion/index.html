@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-default-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenlöschung – GymWerk</title>
+<style>
+  :root {
+    --bg: #080808;
+    --card: #141414;
+    --border: #242424;
+    --accent: #f97316;
+    --text: #e8e8e8;
+    --muted: #9a9a9a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+  }
+  .hero {
+    padding: 56px 20px 40px;
+    text-align: center;
+    background: linear-gradient(180deg, #141414 0%, #080808 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: -0.02em; }
+  .hero .badge {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .hero .meta { color: var(--muted); font-size: 14px; }
+  .langswitch {
+    display: inline-flex;
+    gap: 4px;
+    margin-bottom: 22px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px;
+  }
+  .langswitch button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 6px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .langswitch button.active { background: var(--accent); color: #fff; }
+  main { max-width: 680px; margin: 0 auto; padding: 40px 20px 80px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .card p, .card li { font-size: 15px; line-height: 1.65; color: var(--text); }
+  .card ul, .card ol { margin: 8px 0 0; padding-left: 20px; }
+  .card p { margin: 0 0 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .contact-line { color: var(--muted); font-size: 14px; line-height: 1.6; }
+  footer { text-align: center; color: #444; font-size: 12px; padding-bottom: 40px; }
+  [data-lang="en"] { display: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">GymWerk · MG.Media</div>
+  <h1><span data-lang="de">Datenlöschung</span><span data-lang="en">Data Deletion</span></h1>
+  <div class="meta">
+    <span data-lang="de">Stand: 11. September 2026</span>
+    <span data-lang="en">Last updated: 11 September 2026</span>
+  </div>
+</div>
+
+<main>
+
+  <div style="text-align:center;">
+    <div class="langswitch" role="group" aria-label="Language">
+      <button type="button" data-set-lang="de">DE</button>
+      <button type="button" data-set-lang="en">EN</button>
+    </div>
+  </div>
+
+  <!-- ============ DEUTSCH ============ -->
+  <div data-lang="de">
+    <div class="card">
+      <h2>Kurz gesagt</h2>
+      <p>
+        GymWerk hat <strong>kein Nutzerkonto</strong>. Deine Trainingsdaten (Pläne, Übungen, Verlauf, Rekorde) liegen
+        <strong>ausschließlich auf deinem Gerät</strong> und werden nie an uns übertragen. Auf unserem Server liegt
+        nur, was du über die Feedback-Funktion bewusst abgeschickt hast. Entsprechend gibt es zwei Wege, Daten zu löschen.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>1. Daten auf deinem Gerät löschen</h2>
+      <p>Das erledigst du selbst, sofort und ohne uns:</p>
+      <ul>
+        <li><strong>Einzelne Einträge:</strong> Pläne, Übungen und Verlaufseinträge lassen sich in der App löschen (Eintrag lange drücken bzw. öffnen und „Löschen" wählen).</li>
+        <li><strong>Alles auf einmal:</strong> App deinstallieren – oder in den Android-Einstellungen unter Apps → GymWerk → Speicher auf „Daten löschen" tippen. Danach ist die App leer, als wäre sie neu installiert.</li>
+        <li><strong>Backups:</strong> Hast du über Einstellungen → Daten ein Backup als Datei exportiert, liegt diese Datei dort, wo du sie gespeichert hast (z. B. Downloads oder Cloud-Speicher). Lösche sie dort selbst.</li>
+      </ul>
+      <p>Wir haben auf diese Daten keinen Zugriff und können sie deshalb weder einsehen noch für dich löschen.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Feedback auf dem Server löschen lassen</h2>
+      <p>
+        Wenn du über „Feedback &amp; Vorschläge" in der App eine Nachricht abgeschickt hast, kannst du deren Löschung
+        jederzeit anfordern:
+      </p>
+      <ol>
+        <li>Schreib eine E-Mail an <a href="mailto:support.mgmedia@gmail.com?subject=Datenl%C3%B6schung%20GymWerk">support.mgmedia@gmail.com</a> mit dem Betreff „Datenlöschung GymWerk".</li>
+        <li>Nenne das ungefähre Datum deines Feedbacks und, falls du einen angegeben hast, den Namen. Ein Auszug aus dem Nachrichtentext hilft uns, den richtigen Eintrag zu finden.</li>
+        <li>Wir löschen den Eintrag vollständig und bestätigen dir das per E-Mail – spätestens innerhalb von 30 Tagen, in der Regel deutlich schneller.</li>
+      </ol>
+      <p>Es bleibt keine Kopie zurück. Technische Sicherungskopien unseres Auftragsverarbeiters werden turnusmäßig überschrieben, spätestens nach 30 Tagen.</p>
+    </div>
+
+    <div class="card">
+      <h2>Welche Daten betroffen sind</h2>
+      <p><strong>Auf dem Server</strong> (nur bei abgeschicktem Feedback): Nachrichtentext, optional ein Name, App-Version, Plattform, Spracheinstellung, Zeitpunkt. Gespeichert bei Supabase in Frankfurt am Main (EU), bis du die Löschung anforderst oder wir die Rückmeldung abschließend bearbeitet haben.</p>
+      <p><strong>Auf deinem Gerät:</strong> alle Trainingsdaten und Einstellungen. Verbleib und Löschung liegen allein bei dir.</p>
+      <p>Weitere Einzelheiten stehen in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+    </div>
+
+    <div class="card">
+      <h2>Verantwortlicher</h2>
+      <p class="contact-line">
+        MG.Media<br>
+        Matthias Geisler<br>
+        Kurt-Schumacher-Straße 74<br>
+        67663 Kaiserslautern<br>
+        Deutschland<br>
+        E-Mail: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ ENGLISH ============ -->
+  <div data-lang="en">
+    <div class="card">
+      <h2>In short</h2>
+      <p>
+        GymWerk has <strong>no user account</strong>. Your workout data (plans, exercises, history, records) lives
+        <strong>exclusively on your device</strong> and is never transmitted to us. The only data on our server is what
+        you deliberately sent through the feedback function. So there are two ways to delete data.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>1. Delete data on your device</h2>
+      <p>You do this yourself, immediately and without us:</p>
+      <ul>
+        <li><strong>Individual entries:</strong> plans, exercises and history entries can be deleted in the app (long-press the entry, or open it and choose "Delete").</li>
+        <li><strong>Everything at once:</strong> uninstall the app – or go to Android Settings → Apps → GymWerk → Storage and tap "Clear data". The app is then empty, as if freshly installed.</li>
+        <li><strong>Backups:</strong> if you exported a backup file via Settings → Data, that file is wherever you saved it (e.g. Downloads or a cloud drive). Delete it there yourself.</li>
+      </ul>
+      <p>We have no access to this data and therefore can neither view it nor delete it for you.</p>
+    </div>
+
+    <div class="card">
+      <h2>2. Have your feedback deleted from the server</h2>
+      <p>
+        If you sent a message via "Feedback &amp; suggestions" in the app, you can request its deletion at any time:
+      </p>
+      <ol>
+        <li>Email <a href="mailto:support.mgmedia@gmail.com?subject=Data%20deletion%20GymWerk">support.mgmedia@gmail.com</a> with the subject "Data deletion GymWerk".</li>
+        <li>Tell us the approximate date of your feedback and, if you provided one, the name. A snippet of the message text helps us find the right entry.</li>
+        <li>We delete the entry completely and confirm by email – within 30 days at the latest, usually much sooner.</li>
+      </ol>
+      <p>No copy is kept. Technical backups held by our processor are overwritten on a rolling basis, after 30 days at the latest.</p>
+    </div>
+
+    <div class="card">
+      <h2>Which data is affected</h2>
+      <p><strong>On the server</strong> (only if you sent feedback): message text, an optional name, app version, platform, language setting, timestamp. Stored with Supabase in Frankfurt, Germany (EU), until you request deletion or we have finished handling your feedback.</p>
+      <p><strong>On your device:</strong> all workout data and settings. Keeping or deleting it is entirely up to you.</p>
+      <p>Further details are in the <a href="/datenschutz/">privacy policy</a>.</p>
+    </div>
+
+    <div class="card">
+      <h2>Data Controller</h2>
+      <p class="contact-line">
+        MG.Media<br>
+        Matthias Geisler<br>
+        Kurt-Schumacher-Straße 74<br>
+        67663 Kaiserslautern<br>
+        Germany<br>
+        Email: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<nav class="sitenav" aria-label="Seiten"><a href="/en/">Home</a> · <a href="/en/privacy/">Privacy Policy</a> · <span aria-current="page">Data Deletion</span> · <a href="/en/imprint/">Imprint</a> · <a href="/" lang="de">Deutsch</a></nav>
+<footer>GymWerk · MG.Media · 2026</footer>
+
+<script>
+  (function () {
+    var titles = { de: 'Datenlöschung – GymWerk', en: 'Data Deletion – GymWerk' };
+    function setLang(lang) {
+      if (lang !== 'de' && lang !== 'en') lang = 'de';
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+      var nodes = document.querySelectorAll('[data-lang]');
+      for (var i = 0; i < nodes.length; i++) {
+        var el = nodes[i];
+        if (el.getAttribute('data-lang') === lang) {
+          el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      }
+      var btns = document.querySelectorAll('[data-set-lang]');
+      for (var j = 0; j < btns.length; j++) {
+        btns[j].classList.toggle('active', btns[j].getAttribute('data-set-lang') === lang);
+      }
+      // Gleicher Schlüssel wie die Datenschutzerklärung, damit die Sprachwahl auf beiden Seiten gilt.
+      try { localStorage.setItem('gt_privacy_lang', lang); } catch (e) {}
+    }
+    // Auf gymwerk.app hat jede Sprache eine eigene Adresse (data-default-lang gesetzt
+    // vom Generator tools/site/build.js); ohne Attribut entscheidet ?lang, Merker, Browser.
+    var forced = document.documentElement.getAttribute('data-default-lang');
+    var q = /[?&]lang=(de|en)/.exec(location.search);
+    var saved;
+    try { saved = localStorage.getItem('gt_privacy_lang'); } catch (e) {}
+    var initial = forced || (q && q[1]) || saved || ((navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en');
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+    });
+    setLang(initial);
+  })();
+</script>
+
+</body>
+</html>

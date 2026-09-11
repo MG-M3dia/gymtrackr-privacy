@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" data-default-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutzerklärung – GymWerk</title>
+<style>
+  :root {
+    --bg: #080808;
+    --card: #141414;
+    --border: #242424;
+    --accent: #f97316;
+    --text: #e8e8e8;
+    --muted: #9a9a9a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+  }
+  .hero {
+    padding: 56px 20px 40px;
+    text-align: center;
+    background: linear-gradient(180deg, #141414 0%, #080808 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+  }
+  .hero .badge {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .hero .meta {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .langswitch {
+    display: inline-flex;
+    gap: 4px;
+    margin-bottom: 22px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px;
+  }
+  .langswitch button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 6px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .langswitch button.active {
+    background: var(--accent);
+    color: #fff;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .card p, .card li {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+  .card ul { margin: 8px 0 0; padding-left: 20px; }
+  .card p { margin: 0 0 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .contact-line { color: var(--muted); font-size: 14px; line-height: 1.6; }
+  footer {
+    text-align: center;
+    color: #444;
+    font-size: 12px;
+    padding-bottom: 40px;
+  }
+  /* Standardmäßig Deutsch zeigen, Englisch ausblenden (No-JS-Fallback ohne Flackern).
+     Das JS überschreibt danach per Inline-Style (gewinnt über diese Regel). */
+  [data-lang="en"] { display: none; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">GymWerk · MG.Media</div>
+  <h1><span data-lang="de">Datenschutzerklärung</span><span data-lang="en">Privacy Policy</span></h1>
+  <div class="meta">
+    <span data-lang="de">Stand: 24. Juli 2026</span>
+    <span data-lang="en">Last updated: 24 July 2026</span>
+  </div>
+</div>
+
+<main>
+
+  <div style="text-align:center;">
+    <div class="langswitch" role="group" aria-label="Language">
+      <button type="button" data-set-lang="de">DE</button>
+      <button type="button" data-set-lang="en">EN</button>
+    </div>
+  </div>
+
+  <!-- ============ DEUTSCH ============ -->
+  <div data-lang="de">
+    <div class="card">
+      <h2>Verantwortlicher</h2>
+      <p class="contact-line">
+        MG.Media<br>
+        Matthias Geisler<br>
+        Kurt-Schumacher-Straße 74<br>
+        67663 Kaiserslautern<br>
+        Deutschland<br>
+        E-Mail: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Welche Daten verarbeitet GymWerk?</h2>
+      <p>
+        GymWerk ist eine Trainings-App, deren <strong>Trainingsdaten ausschließlich lokal auf deinem Gerät</strong> bleiben.
+        Es gibt kein Nutzerkonto und keine Synchronisierung in die Cloud; deine Trainingsdaten werden zu keinem Zeitpunkt an
+        uns oder Dritte übertragen. Die einzige Ausnahme von der reinen Offline-Nutzung ist die unten beschriebene
+        Feedback-Funktion.
+      </p>
+      <p>Folgende Daten werden lokal auf deinem Gerät gespeichert (vergleichbar mit anderen Apps, die offline funktionieren):</p>
+      <ul>
+        <li>Von dir angelegte Übungen, Trainingspläne und dein Trainingsverlauf (Sätze, Wiederholungen, Gewichte, Notizen)</li>
+        <li>Deine App-Einstellungen (z. B. Sprache, Bildschirm-aktiv-halten, Pausenzeiten)</li>
+      </ul>
+      <p>
+        Diese Daten verbleiben <strong>ausschließlich auf deinem Smartphone</strong>. Wir haben keinen Zugriff darauf,
+        sehen sie nicht ein und können sie nicht auslesen. Löschst du die App, werden auch diese Daten gelöscht.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Keine Analyse, kein Tracking, keine Werbung</h2>
+      <p>GymWerk enthält:</p>
+      <ul>
+        <li>keine Analyse- oder Tracking-Tools</li>
+        <li>keine Werbung</li>
+        <li>keine Weitergabe deiner Trainingsdaten an Dritte</li>
+        <li>keine Nutzerkonten oder Login</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Feedback-Funktion</h2>
+      <p>
+        Wenn du über die Funktion "Feedback &amp; Vorschläge" in den Einstellungen eine Nachricht absendest, werden
+        folgende Angaben an unseren Auftragsverarbeiter <strong>Supabase</strong> übertragen und dort auf Servern in
+        Frankfurt am Main (Region eu-central-1) gespeichert:
+      </p>
+      <ul>
+        <li>dein Nachrichtentext</li>
+        <li>ein Name, falls du einen angibst (freiwillig)</li>
+        <li>App-Version, Plattform (Android/iOS) und deine Spracheinstellung</li>
+      </ul>
+      <p>
+        Das geschieht <strong>ausschließlich dann, wenn du auf "Senden" tippst</strong>. Deine Trainingsdaten werden dabei
+        nicht übermittelt. Die Angaben dienen allein dazu, deine Rückmeldung einzuordnen und zu beantworten.
+        Rechtsgrundlage ist unser berechtigtes Interesse an der Verbesserung der App (Art. 6 Abs. 1 lit. f DSGVO).
+      </p>
+      <p>
+        Kann die Nachricht nicht übertragen werden – etwa ohne Internetverbindung –, bietet dir die App an, sie stattdessen
+        über dein eigenes E-Mail-Programm an <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a> zu
+        schicken. In dem Fall gelten die Datenschutzbestimmungen deines E-Mail-Anbieters.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Backups &amp; Teilen</h2>
+      <p>
+        Über die Export-Funktion in den Einstellungen kannst du eine Backup-Datei mit deinen Trainingsdaten erstellen.
+        Zusätzlich kannst du nach einem Workout über „Training teilen" eine kurze Text-Zusammenfassung deines Trainings
+        weitergeben.
+      </p>
+      <p>
+        In beiden Fällen wird der Inhalt lokal erzeugt und nur dann weitergegeben, wenn du ihn aktiv über das
+        Teilen-Menü deines Geräts versendest – du entscheidest selbst, wohin (z. B. Dateien-App, Messenger, Cloud-Speicher)
+        und mit wem. Beim Weitergeben an einen Dienst eines Dritten gelten dessen Datenschutzbestimmungen.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Berechtigungen</h2>
+      <p>
+        GymWerk benötigt keinen Zugriff auf Kamera, Standort, Kontakte oder Mikrofon.
+      </p>
+      <p>
+        Optional kannst du <strong>Benachrichtigungen</strong> erlauben. Sie werden ausschließlich lokal auf deinem
+        Gerät genutzt – für zwei Zwecke:
+      </p>
+      <ul>
+        <li>um dich am Ende einer Trainingspause zu erinnern, und</li>
+        <li>während ein Training läuft, als dauerhafte Benachrichtigung, die den Pausentimer anzeigt und über die du
+          Sätze abhaken sowie Pausen überspringen kannst – auch direkt vom Sperrbildschirm.</li>
+      </ul>
+      <p>
+        Für die laufende Trainings-Benachrichtigung wird während des Trainings ein <strong>Vordergrund-Dienst</strong>
+        (Foreground Service) verwendet. Dabei werden <strong>keine Daten übertragen</strong>. Die Benachrichtigungen
+        sind freiwillig und lassen sich in den App-Einstellungen sowie in den Systemeinstellungen jederzeit abschalten.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Änderungen dieser Datenschutzerklärung</h2>
+      <p>
+        Sollten sich zukünftig Funktionen ändern, die Daten verarbeiten (z. B. eine optionale Cloud-Synchronisierung),
+        aktualisieren wir diese Erklärung entsprechend und kennzeichnen das Datum oben.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Kontakt</h2>
+      <p>Bei Fragen zum Datenschutz erreichst du uns unter: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a></p>
+      <p>Wie du deine Daten löschst oder die Löschung anforderst, steht auf der Seite <a href="/datenloeschung/">Datenlöschung</a>.</p>
+    </div>
+  </div>
+
+  <!-- ============ ENGLISH ============ -->
+  <div data-lang="en">
+    <div class="card">
+      <h2>Data Controller</h2>
+      <p class="contact-line">
+        MG.Media<br>
+        Matthias Geisler<br>
+        Kurt-Schumacher-Straße 74<br>
+        67663 Kaiserslautern<br>
+        Germany<br>
+        Email: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>What data does GymWerk process?</h2>
+      <p>
+        GymWerk is a workout app whose <strong>workout data stays exclusively on your device</strong>.
+        There is no user account and no cloud sync, and your workout data is never transmitted to us or any third party.
+        The only exception to purely offline use is the feedback function described below.
+      </p>
+      <p>The following data is stored locally on your device (like other apps that work offline):</p>
+      <ul>
+        <li>Exercises, workout plans and workout history you create (sets, reps, weights, notes)</li>
+        <li>Your app settings (e.g. language, keep screen awake, rest times)</li>
+      </ul>
+      <p>
+        This data remains <strong>exclusively on your smartphone</strong>. We have no access to it, cannot view it
+        and cannot read it. If you delete the app, this data is deleted as well.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>No analytics, no tracking, no advertising</h2>
+      <p>GymWerk contains:</p>
+      <ul>
+        <li>no analytics or tracking tools</li>
+        <li>no advertising</li>
+        <li>no sharing of your workout data with third parties</li>
+        <li>no user accounts or login</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Feedback function</h2>
+      <p>
+        When you send a message via "Feedback &amp; suggestions" in the settings, the following details are transmitted
+        to our processor <strong>Supabase</strong> and stored on servers in Frankfurt, Germany
+        (region eu-central-1):
+      </p>
+      <ul>
+        <li>your message text</li>
+        <li>a name, if you choose to provide one (optional)</li>
+        <li>app version, platform (Android/iOS) and your language setting</li>
+      </ul>
+      <p>
+        This happens <strong>only when you tap "Send"</strong>. No workout data is transmitted. The details serve solely to
+        understand and answer your feedback. The legal basis is our legitimate interest in improving the app
+        (Art. 6(1)(f) GDPR).
+      </p>
+      <p>
+        If the message cannot be transmitted – for example without an internet connection – the app offers to send it via
+        your own email program to <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a> instead. Your
+        email provider's privacy terms then apply.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Backups &amp; sharing</h2>
+      <p>
+        Using the export feature in the settings, you can create a backup file with your workout data. In addition,
+        after a workout you can share a short text summary of your session via "Share workout".
+      </p>
+      <p>
+        In both cases the content is created locally and only passed on if you actively send it via your device's
+        share menu – you decide where (e.g. Files app, messenger, cloud storage) and with whom. When passing it to a
+        third-party service, that provider's privacy terms apply.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Permissions</h2>
+      <p>
+        GymWerk does not require access to your camera, location, contacts or microphone.
+      </p>
+      <p>
+        Optionally, you can allow <strong>notifications</strong>. They are used exclusively locally on your device –
+        for two purposes:
+      </p>
+      <ul>
+        <li>to remind you when a rest period ends, and</li>
+        <li>while a workout is running, as an ongoing notification that shows the rest timer and lets you check off
+          sets and skip rest – including directly from the lock screen.</li>
+      </ul>
+      <p>
+        For the ongoing workout notification, a <strong>foreground service</strong> is used during the workout.
+        <strong>No data is transmitted</strong>. The notifications are optional and can be turned off at any time
+        in the app settings or the system settings.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Changes to this privacy policy</h2>
+      <p>
+        If features that process data change in the future (e.g. an optional cloud sync), we will update this policy
+        accordingly and mark the date at the top.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Contact</h2>
+      <p>If you have any privacy questions, reach us at: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a></p>
+      <p>How to delete your data or request deletion is explained on the <a href="/en/data-deletion/">data deletion</a> page.</p>
+    </div>
+  </div>
+
+</main>
+
+<nav class="sitenav" aria-label="Seiten"><a href="/en/">Home</a> · <span aria-current="page">Privacy Policy</span> · <a href="/en/data-deletion/">Data Deletion</a> · <a href="/en/imprint/">Imprint</a> · <a href="/" lang="de">Deutsch</a></nav>
+<footer>GymWerk · MG.Media · 2026</footer>
+
+<script>
+  (function () {
+    var titles = { de: 'Datenschutzerklärung – GymWerk', en: 'Privacy Policy – GymWerk' };
+    function setLang(lang) {
+      if (lang !== 'de' && lang !== 'en') lang = 'de';
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+      var nodes = document.querySelectorAll('[data-lang]');
+      for (var i = 0; i < nodes.length; i++) {
+        var el = nodes[i];
+        if (el.getAttribute('data-lang') === lang) {
+          el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      }
+      var btns = document.querySelectorAll('[data-set-lang]');
+      for (var j = 0; j < btns.length; j++) {
+        btns[j].classList.toggle('active', btns[j].getAttribute('data-set-lang') === lang);
+      }
+      try { localStorage.setItem('gt_privacy_lang', lang); } catch (e) {}
+    }
+    // Auf gymwerk.app hat jede Sprache eine eigene Adresse (data-default-lang gesetzt
+    // vom Generator tools/site/build.js); ohne Attribut entscheidet Browser bzw. Merker.
+    var forced = document.documentElement.getAttribute('data-default-lang');
+    var saved;
+    try { saved = localStorage.getItem('gt_privacy_lang'); } catch (e) {}
+    var initial = forced || saved || ((navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en');
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+    });
+    setLang(initial);
+  })();
+</script>
+
+</body>
+</html>
