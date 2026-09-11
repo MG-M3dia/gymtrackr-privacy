@@ -84,9 +84,26 @@
   .contact-line { color: var(--muted); font-size: 14px; line-height: 1.6; }
   footer { text-align: center; color: #444; font-size: 12px; padding-bottom: 40px; }
   [data-lang="en"] { display: none; }
+
+  .topbar { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:12px 20px; flex-wrap:wrap; padding:10px 20px; background:rgba(8,8,8,.92); backdrop-filter:blur(8px); border-bottom:1px solid #242424; }
+  .topbar .brand { display:inline-flex; align-items:center; gap:10px; color:#e8e8e8; font-weight:700; font-size:17px; text-decoration:none; }
+  .topbar .brand img { width:28px; height:28px; border-radius:7px; }
+  .topbar .brand .w { color:#f97316; }
+  .topbar nav { display:flex; flex-wrap:wrap; gap:4px 18px; font-size:14px; }
+  .topbar nav a { color:#9a9a9a; text-decoration:none; }
+  .topbar nav a:hover { color:#e8e8e8; text-decoration:none; }
+  .topbar nav [aria-current] { color:#e8e8e8; font-weight:600; }
+  .topbar nav .lang { color:#f97316; }
 </style>
 </head>
 <body>
+<header class="topbar">
+  <a class="brand" href="/en/"><img src="/assets/icon.png" alt="" width="28" height="28"><span>Gym<span class="w">Werk</span></span></a>
+  <nav aria-label="Pages"><a href="/en/privacy/">Privacy Policy</a>
+    <span aria-current="page">Data Deletion</span>
+    <a href="/en/imprint/">Imprint</a>
+    <a class="lang" href="/" lang="de">Deutsch</a></nav>
+</header>
 
 <div class="hero">
   <div class="badge">GymWerk · MG.Media</div>
