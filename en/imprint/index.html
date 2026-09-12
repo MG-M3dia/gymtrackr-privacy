@@ -27,8 +27,6 @@
   h1.plain { font-size:26px; margin:0 0 20px; }
   a { color:var(--accent); text-decoration:none; }
   a:hover { text-decoration:underline; }
-  .sitenav { text-align:center; color:var(--muted); font-size:14px; padding:24px 20px 0; }
-  .sitenav [aria-current] { color:var(--text); font-weight:600; }
   footer { text-align:center; color:#444; font-size:12px; padding:16px 20px 40px; }
 
   .topbar { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:12px 20px; flex-wrap:wrap; padding:10px 20px; background:rgba(8,8,8,.92); backdrop-filter:blur(8px); border-bottom:1px solid #242424; }
@@ -39,7 +37,11 @@
   .topbar nav a { color:#9a9a9a; text-decoration:none; }
   .topbar nav a:hover { color:#e8e8e8; text-decoration:none; }
   .topbar nav [aria-current] { color:#e8e8e8; font-weight:600; }
-  .topbar nav .lang { color:#f97316; }</style>
+  .topbar nav .lang { color:#f97316; }
+  .sitenav { text-align:center; color:#9a9a9a; font-size:14px; padding:24px 20px 0; }
+  .sitenav a { color:#f97316; text-decoration:none; }
+  .sitenav a:hover { text-decoration:underline; }
+  .sitenav [aria-current] { color:#e8e8e8; font-weight:600; }</style>
 </head>
 <body>
 <header class="topbar">
