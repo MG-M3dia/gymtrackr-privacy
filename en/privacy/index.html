@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy – GymWerk</title>
 <meta name="description" content="Privacy Policy of the GymWerk app (MG.Media)">
+<meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#080808">
 <link rel="icon" href="/img/icon.png" type="image/png">
 <style>
@@ -71,6 +72,10 @@
   .doc li { margin:.35rem 0; }
   .doc address { font-style:normal; line-height:1.7; }
 
+  .code { font-size:2.6rem; font-weight:800; letter-spacing:.35em; color:var(--accent); margin:0 0 1rem; }
+  .doc-list { padding-left:1.25rem; color:var(--muted); margin:0 0 1.5rem; }
+  .doc-list li { margin:.3rem 0; }
+
   /* Impressum, 404 */
   .box { background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1.25rem 1.5rem; margin:0 0 1rem; }
   .box h2 { margin:0 0 .5rem; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; }
@@ -124,7 +129,7 @@
 </aside>
 <main class="doc">
 <h1>Privacy Policy</h1>
-<p class="stand">Last updated: 24 July 2026</p>
+<p class="stand">Last updated: 20 September 2026</p>
 <h2>Data Controller</h2>
 <p>
   MG.Media<br>
@@ -139,7 +144,8 @@
 <p>
   GymWerk is a workout app whose <strong>workout data stays exclusively on your device</strong>.
   There is no user account and no cloud sync, and your workout data is never transmitted to us or any third party.
-  The only exception to purely offline use is the feedback function described below.
+  The only exceptions to purely offline use are the feedback function described below and the optional
+  training-partner feature, which is off by default.
 </p>
 <p>The following data is stored locally on your device (like other apps that work offline):</p>
 <ul>
@@ -182,10 +188,35 @@
   email provider's privacy terms then apply.
 </p>
 
+<h2>Training partners (optional)</h2>
+<p>
+  The "Training partners" feature is <strong>off by default</strong>. If you turn it on in the settings, your
+  device signs in anonymously with our processor <strong>Supabase</strong> (servers in Frankfurt, Germany, region
+  eu-central-1) without an account and receives a random, pseudonymous identifier – no email, no password, no
+  real name.
+</p>
+<p>Only the following is transmitted and stored there:</p>
+<ul>
+  <li>the display name you choose</li>
+  <li>per exercise, your best set and your last set (weight, reps, date) plus the exercise name</li>
+  <li>your pairings with partners and the times of the last update</li>
+</ul>
+<p>
+  Workout history, notes, plans and settings are not transmitted. Your values can be seen
+  <strong>only by partners you paired yourself via a pairing code</strong>; there is no public directory. Your
+  comparison values are updated after every saved workout.
+</p>
+<p>
+  You can remove pairings at any time. "Delete all partner data" in the settings removes identifier, display
+  name, pairings and comparison values completely from the server. The legal basis is your consent given by
+  actively turning the feature on (Art. 6(1)(a) GDPR); turning it off or deleting withdraws it.
+</p>
+
 <h2>Backups &amp; sharing</h2>
 <p>
   Using the export feature in the settings, you can create a backup file with your workout data. In addition,
-  after a workout you can share a short text summary of your session via "Share workout".
+  after a workout you can share a short text summary of your session via "Share workout", and a workout plan as
+  a link – the plan is contained entirely in the link itself and is not stored on our server.
 </p>
 <p>
   In both cases the content is created locally and only passed on if you actively send it via your device's

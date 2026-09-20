@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Data Deletion – GymWerk</title>
 <meta name="description" content="Data Deletion of the GymWerk app (MG.Media)">
+<meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#080808">
 <link rel="icon" href="/img/icon.png" type="image/png">
 <style>
@@ -71,6 +72,10 @@
   .doc li { margin:.35rem 0; }
   .doc address { font-style:normal; line-height:1.7; }
 
+  .code { font-size:2.6rem; font-weight:800; letter-spacing:.35em; color:var(--accent); margin:0 0 1rem; }
+  .doc-list { padding-left:1.25rem; color:var(--muted); margin:0 0 1.5rem; }
+  .doc-list li { margin:.3rem 0; }
+
   /* Impressum, 404 */
   .box { background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1.25rem 1.5rem; margin:0 0 1rem; }
   .box h2 { margin:0 0 .5rem; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; }
@@ -124,7 +129,7 @@
 </aside>
 <main class="doc">
 <h1>Data Deletion</h1>
-<p class="stand">Last updated: 11 September 2026</p>
+<p class="stand">Last updated: 20 September 2026</p>
 <h2>In short</h2>
 <p>
   GymWerk has <strong>no user account</strong>. Your workout data (plans, exercises, history, records) lives
@@ -151,6 +156,19 @@
   <li>We delete the entry completely and confirm by email – within 30 days at the latest, usually much sooner.</li>
 </ol>
 <p>No copy is kept. Technical backups held by our processor are overwritten on a rolling basis, after 30 days at the latest.</p>
+
+<h2>3. Delete training-partner data</h2>
+<p>
+  If you turned on "Training partners", your display name, pairings and, per exercise, best set and last set
+  are stored on our server. You delete this yourself in the app: Settings → Training partners →
+  <strong>"Delete all partner data"</strong>. This also removes the pseudonymous identifier and all pairings;
+  nothing remains on the server that could be linked to your device.
+</p>
+<p>
+  If you no longer have access to the device, email
+  <a href="mailto:support.mgmedia@gmail.com?subject=Data%20deletion%20GymWerk">support.mgmedia@gmail.com</a> and
+  tell us your display name and, if possible, the display name of a partner – that is how we find the entry.
+</p>
 
 <h2>Which data is affected</h2>
 <p><strong>On the server</strong> (only if you sent feedback): message text, an optional name, app version, platform, language setting, timestamp. Stored with Supabase in Frankfurt, Germany (EU), until you request deletion or we have finished handling your feedback.</p>

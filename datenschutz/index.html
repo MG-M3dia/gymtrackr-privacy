@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Datenschutzerklärung – GymWerk</title>
 <meta name="description" content="Datenschutzerklärung der App GymWerk (MG.Media)">
+<meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#080808">
 <link rel="icon" href="/img/icon.png" type="image/png">
 <style>
@@ -71,6 +72,10 @@
   .doc li { margin:.35rem 0; }
   .doc address { font-style:normal; line-height:1.7; }
 
+  .code { font-size:2.6rem; font-weight:800; letter-spacing:.35em; color:var(--accent); margin:0 0 1rem; }
+  .doc-list { padding-left:1.25rem; color:var(--muted); margin:0 0 1.5rem; }
+  .doc-list li { margin:.3rem 0; }
+
   /* Impressum, 404 */
   .box { background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1.25rem 1.5rem; margin:0 0 1rem; }
   .box h2 { margin:0 0 .5rem; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; }
@@ -124,7 +129,7 @@
 </aside>
 <main class="doc">
 <h1>Datenschutzerklärung</h1>
-<p class="stand">Stand: 24. Juli 2026</p>
+<p class="stand">Stand: 20. September 2026</p>
 <h2>Verantwortlicher</h2>
 <p>
   MG.Media<br>
@@ -139,8 +144,8 @@
 <p>
   GymWerk ist eine Trainings-App, deren <strong>Trainingsdaten ausschließlich lokal auf deinem Gerät</strong> bleiben.
   Es gibt kein Nutzerkonto und keine Synchronisierung in die Cloud; deine Trainingsdaten werden zu keinem Zeitpunkt an
-  uns oder Dritte übertragen. Die einzige Ausnahme von der reinen Offline-Nutzung ist die unten beschriebene
-  Feedback-Funktion.
+  uns oder Dritte übertragen. Die einzigen Ausnahmen von der reinen Offline-Nutzung sind die unten beschriebene
+  Feedback-Funktion und die optionale, standardmäßig ausgeschaltete Trainingspartner-Funktion.
 </p>
 <p>Folgende Daten werden lokal auf deinem Gerät gespeichert (vergleichbar mit anderen Apps, die offline funktionieren):</p>
 <ul>
@@ -183,11 +188,36 @@
   schicken. In dem Fall gelten die Datenschutzbestimmungen deines E-Mail-Anbieters.
 </p>
 
+<h2>Trainingspartner (optional)</h2>
+<p>
+  Die Funktion „Trainingspartner" ist <strong>standardmäßig ausgeschaltet</strong>. Schaltest du sie in den
+  Einstellungen ein, meldet sich dein Gerät ohne Konto anonym bei unserem Auftragsverarbeiter <strong>Supabase</strong>
+  an (Server in Frankfurt am Main, Region eu-central-1) und erhält eine zufällige, pseudonyme Kennung – keine E-Mail,
+  kein Passwort, kein Klarname.
+</p>
+<p>Übertragen und dort gespeichert werden ausschließlich:</p>
+<ul>
+  <li>der von dir gewählte Anzeigename</li>
+  <li>je Übung dein Bestwert und dein letzter Satz (Gewicht, Wiederholungen, Datum) sowie der Übungsname</li>
+  <li>die Kopplungen zu deinen Partnern und die Zeitpunkte der Aktualisierung</li>
+</ul>
+<p>
+  Nicht übertragen werden Trainingsverläufe, Notizen, Pläne oder Einstellungen. Sehen können deine Werte
+  <strong>ausschließlich Partner, die du selbst über einen Kopplungscode verbunden hast</strong>; ein öffentliches
+  Verzeichnis gibt es nicht. Nach jedem gespeicherten Training werden deine Vergleichswerte aktualisiert.
+</p>
+<p>
+  Kopplungen kannst du jederzeit lösen. „Alle Partnerdaten löschen" in den Einstellungen entfernt Kennung,
+  Anzeigename, Kopplungen und Vergleichswerte vollständig vom Server. Rechtsgrundlage ist deine Einwilligung
+  durch das aktive Einschalten (Art. 6 Abs. 1 lit. a DSGVO); mit dem Ausschalten oder Löschen widerrufst du sie.
+</p>
+
 <h2>Backups &amp; Teilen</h2>
 <p>
   Über die Export-Funktion in den Einstellungen kannst du eine Backup-Datei mit deinen Trainingsdaten erstellen.
   Zusätzlich kannst du nach einem Workout über „Training teilen" eine kurze Text-Zusammenfassung deines Trainings
-  weitergeben.
+  weitergeben, und einen Trainingsplan als Link – der Plan steckt vollständig im Link selbst und wird nicht auf
+  unserem Server abgelegt.
 </p>
 <p>
   In beiden Fällen wird der Inhalt lokal erzeugt und nur dann weitergegeben, wenn du ihn aktiv über das

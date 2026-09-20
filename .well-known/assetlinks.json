@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.mgmedia.gymtrackr",
+      "sha256_cert_fingerprints": [
+        "C0:B5:CB:B9:D6:A1:5B:87:62:D9:AF:DB:DD:B2:6A:21:90:E6:1D:78:AB:5A:7F:AE:81:34:15:22:AB:0F:FF:5B"
+      ]
+    }
+  }
+]

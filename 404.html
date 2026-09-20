@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seite nicht gefunden – GymWerk</title>
 <meta name="description" content="">
+<meta name="robots" content="index, follow">
 <meta name="theme-color" content="#080808">
 <link rel="icon" href="/img/icon.png" type="image/png">
 <style>
@@ -71,6 +72,10 @@
   .doc li { margin:.35rem 0; }
   .doc address { font-style:normal; line-height:1.7; }
 
+  .code { font-size:2.6rem; font-weight:800; letter-spacing:.35em; color:var(--accent); margin:0 0 1rem; }
+  .doc-list { padding-left:1.25rem; color:var(--muted); margin:0 0 1.5rem; }
+  .doc-list li { margin:.3rem 0; }
+
   /* Impressum, 404 */
   .box { background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1.25rem 1.5rem; margin:0 0 1rem; }
   .box h2 { margin:0 0 .5rem; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; }
@@ -131,7 +136,7 @@
 </div>
 <script>
   (function () {
-    var routes = ["/","/en/","/datenschutz/","/en/privacy/","/datenloeschung/","/en/data-deletion/","/impressum/","/en/imprint/"];
+    var routes = ["/","/en/","/datenschutz/","/en/privacy/","/datenloeschung/","/en/data-deletion/","/impressum/","/en/imprint/","/p/","/partner/"];
     var aliases = {"/privacy/":"/en/privacy/","/data-deletion/":"/en/data-deletion/","/imprint/":"/en/imprint/","/en/datenschutz/":"/en/privacy/","/en/datenloeschung/":"/en/data-deletion/","/en/impressum/":"/en/imprint/","/privacy-policy/":"/datenschutz/","/datenloeschung.html/":"/datenloeschung/"};
     var p = location.pathname.toLowerCase().replace(/\.html$/, '');
     if (p.slice(-1) !== '/') p += '/';

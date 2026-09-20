@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Imprint – GymWerk</title>
-<meta name="description" content="Imprint of GymWerk (MG.Media)">
-<meta name="robots" content="noindex, follow">
+<title>Trainingspartner – GymWerk</title>
+<meta name="description" content="Einladung, sich in GymWerk als Trainingspartner zu koppeln.">
+<meta name="robots" content="index, follow">
 <meta name="theme-color" content="#080808">
 <link rel="icon" href="/img/icon.png" type="image/png">
 <style>
@@ -118,33 +118,67 @@
 <body>
 <input type="checkbox" id="menu" class="menu-toggle" hidden>
 <header class="top"><div class="top-inner">
-<a class="brand" href="/en/"><img src="/img/icon.png" alt="" width="32" height="32"><span>Gym<span class="w">Werk</span></span></a>
-<nav class="desk" aria-label="Pages"><a href="/en/">Home</a><a href="/en/privacy/">Privacy Policy</a><a href="/en/data-deletion/">Data Deletion</a><span aria-current="page">Imprint</span><a class="lang" href="/impressum/" lang="de">Deutsch</a></nav>
-<label class="burger" for="menu" role="button" tabindex="0" aria-label="Menu"><i></i><i></i><i></i></label>
+<a class="brand" href="/"><img src="/img/icon.png" alt="" width="32" height="32"><span>Gym<span class="w">Werk</span></span></a>
+<nav class="desk" aria-label="Seiten"><a href="/">Start</a><a href="/datenschutz/">Datenschutzerklärung</a><a href="/datenloeschung/">Datenlöschung</a><a href="/impressum/">Impressum</a><a class="lang" href="/en/" lang="en">English</a></nav>
+<label class="burger" for="menu" role="button" tabindex="0" aria-label="Menü"><i></i><i></i><i></i></label>
 </div></header>
 <label class="scrim" for="menu" aria-hidden="true"></label>
-<aside class="drawer" aria-label="Pages">
-<div class="drawer-head"><span>Menu</span><label class="close" for="menu" aria-label="Close menu">&times;</label></div>
-<nav><a href="/en/">Home</a><a href="/en/privacy/">Privacy Policy</a><a href="/en/data-deletion/">Data Deletion</a><span aria-current="page">Imprint</span><a class="lang" href="/impressum/" lang="de">Deutsch</a></nav>
+<aside class="drawer" aria-label="Seiten">
+<div class="drawer-head"><span>Menü</span><label class="close" for="menu" aria-label="Menü schließen">&times;</label></div>
+<nav><a href="/">Start</a><a href="/datenschutz/">Datenschutzerklärung</a><a href="/datenloeschung/">Datenlöschung</a><a href="/impressum/">Impressum</a><a class="lang" href="/en/" lang="en">English</a></nav>
 </aside>
 <main class="">
 
-<h1>Imprint</h1>
-<div class="box">
-  <h2>Information pursuant to § 5 DDG (German Digital Services Act)</h2>
-  <address>MG.Media<br>Matthias Geisler<br>Kurt-Schumacher-Straße 74<br>67663 Kaiserslautern<br>Germany</address>
+<div id="pair" hidden>
+  <p class="kicker" id="kicker"></p>
+  <h1 id="title"></h1>
+  <p class="code" id="code"></p>
+  <p class="lead" id="lead"></p>
+  <p class="actions"><a class="cta" id="open" href="#"></a><a class="more" id="play" href="https://play.google.com/store/apps/details?id=com.mgmedia.gymtrackr"></a></p>
+  <p class="hint" id="hint"></p>
 </div>
-<div class="box">
-  <h2>Contact</h2>
-  <p><a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a></p>
+<div id="generic" hidden>
+  <h1>GymWerk</h1>
+  <div class="box"><p id="weg"></p><p style="margin-top:10px"><a class="more" href="/" id="start"></a></p></div>
 </div>
-<div class="box">
-  <h2>Responsible for content</h2>
-  <address>Matthias Geisler, Kurt-Schumacher-Straße 74, 67663 Kaiserslautern</address>
-</div>
+<script>
+(function () {
+  var de = (navigator.language || 'de').toLowerCase().indexOf('de') === 0;
+  var T = de ? {
+    kicker: 'Trainingspartner', title: 'Einladung zum Koppeln',
+    lead: 'Jemand möchte in GymWerk Bestwerte mit dir vergleichen. Der Code gilt 15 Minuten.',
+    open: 'In GymWerk öffnen', play: 'GymWerk bei Google Play',
+    hint: 'Öffnet sich die App nicht: GymWerk installieren, dann diesen Link noch einmal antippen – oder in der App unter Einstellungen → Trainingspartner „Code eingeben" wählen und den Code eintippen.',
+    weg: 'Dieser Link enthält keinen Kopplungscode.', start: 'Zur Startseite', pt: 'Trainingspartner – GymWerk'
+  } : {
+    kicker: 'Training partners', title: 'Invitation to pair',
+    lead: 'Someone wants to compare personal bests with you in GymWerk. The code is valid for 15 minutes.',
+    open: 'Open in GymWerk', play: 'GymWerk on Google Play',
+    hint: 'If the app does not open: install GymWerk, then tap this link again – or choose "Enter code" under Settings → Training partners in the app and type the code.',
+    weg: 'This link does not contain a pairing code.', start: 'Go to home page', pt: 'Training partners – GymWerk'
+  };
+  document.title = T.pt;
+  var code = (location.hash || '').replace(/^#/, '').replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+  if (/^[A-Z0-9]{6}$/.test(code)) {
+    document.getElementById('kicker').textContent = T.kicker;
+    document.getElementById('title').textContent = T.title;
+    document.getElementById('code').textContent = code.slice(0, 3) + ' ' + code.slice(3);
+    document.getElementById('lead').textContent = T.lead;
+    var open = document.getElementById('open');
+    open.textContent = T.open; open.href = 'gymwerk://partner/' + code;
+    document.getElementById('play').textContent = T.play;
+    document.getElementById('hint').textContent = T.hint;
+    document.getElementById('pair').hidden = false;
+  } else {
+    document.getElementById('weg').textContent = T.weg;
+    document.getElementById('start').textContent = T.start;
+    document.getElementById('generic').hidden = false;
+  }
+})();
+</script>
 </main>
 <footer class="sitefoot"><div class="foot-inner">
-<nav aria-label="Pages"><a href="/en/">Home</a> · <a href="/en/privacy/">Privacy Policy</a> · <a href="/en/data-deletion/">Data Deletion</a> · <span aria-current="page">Imprint</span> · <a class="lang" href="/impressum/" lang="de">Deutsch</a></nav>
+<nav aria-label="Seiten"><a href="/">Start</a> · <a href="/datenschutz/">Datenschutzerklärung</a> · <a href="/datenloeschung/">Datenlöschung</a> · <a href="/impressum/">Impressum</a> · <a class="lang" href="/en/" lang="en">English</a></nav>
 GymWerk &middot; MG.Media &middot; 2026
 </div></footer>
 <script>
