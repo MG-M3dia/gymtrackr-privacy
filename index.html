@@ -1,75 +1,160 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GymWerk – Trainingstagebuch für Android und Wear OS</title>
-<meta name="description" content="Trainingspläne erstellen, Workouts tracken, Fortschritt sehen – alles auf deinem Gerät, ohne Konto.">
-<link rel="icon" href="/assets/icon.png">
+<meta name="description" content="Trainingspläne erstellen, jeden Satz live erfassen, Fortschritt sehen – auf dem Handy und an der Uhr. Ohne Konto, ohne Werbung.">
+<meta name="theme-color" content="#080808">
+<link rel="icon" href="/img/icon.png" type="image/png">
 <style>
-  :root { --bg:#080808; --card:#141414; --border:#242424; --accent:#f97316; --text:#e8e8e8; --muted:#9a9a9a; }
+  :root { --bg:#080808; --card:#141414; --card-alt:#1a1917; --border:#242424; --accent:#f97316; --accent-soft:#2a1a0f; --text:#e8e8e8; --muted:#9a9a9a; --frame:#1a1a1c; }
   * { box-sizing:border-box; }
-  body { font-family:-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif; margin:0; background:var(--bg); color:var(--text); }
-  .hero { padding:56px 20px 40px; text-align:center; background:linear-gradient(180deg,#141414 0%,#080808 100%); border-bottom:1px solid var(--border); }
-  .hero img.icon { width:96px; height:96px; border-radius:22px; box-shadow:0 12px 32px rgba(0,0,0,.55); }
-  .hero h1 { margin:18px 0 8px; font-size:34px; letter-spacing:-0.02em; }
-  .hero h1 .w { color:var(--accent); }
-  .hero .lead { color:var(--muted); font-size:17px; line-height:1.5; max-width:520px; margin:0 auto 24px; }
-  .cta { display:inline-block; padding:12px 22px; background:var(--accent); color:#fff; border-radius:999px; font-weight:700; text-decoration:none; }
-  .cta:hover { text-decoration:none; filter:brightness(1.08); }
-  main { max-width:760px; margin:0 auto; padding:40px 20px 80px; }
-  .shot { display:block; width:100%; max-width:540px; margin:0 auto 32px; border-radius:18px; border:1px solid var(--border); }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
-  .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px 22px; }
-  .card h2 { margin:0 0 8px; font-size:14px; color:var(--accent); text-transform:uppercase; letter-spacing:.06em; }
-  .card p, .card li, .card address { font-size:15px; line-height:1.6; margin:0; font-style:normal; }
-  .card + .card { margin-top:14px; }
-  h1.plain { font-size:26px; margin:0 0 20px; }
-  a { color:var(--accent); text-decoration:none; }
-  a:hover { text-decoration:underline; }
-  footer { text-align:center; color:#444; font-size:12px; padding:16px 20px 40px; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; }
+  a { color:var(--accent); }
+  h1 { font-size:1.75rem; line-height:1.25; margin:0 0 .5rem; }
+  h2 { font-size:1.15rem; margin:2.25rem 0 .5rem; color:var(--accent); }
+  p, li { color:var(--text); }
+  strong { font-weight:650; }
+  main { max-width:44rem; margin:0 auto; padding:2rem 1.25rem 4rem; }
 
-  .topbar { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:12px 20px; flex-wrap:wrap; padding:10px 20px; background:rgba(8,8,8,.92); backdrop-filter:blur(8px); border-bottom:1px solid #242424; }
-  .topbar .brand { display:inline-flex; align-items:center; gap:10px; color:#e8e8e8; font-weight:700; font-size:17px; text-decoration:none; }
-  .topbar .brand img { width:28px; height:28px; border-radius:7px; }
-  .topbar .brand .w { color:#f97316; }
-  .topbar nav { display:flex; flex-wrap:wrap; gap:4px 18px; font-size:14px; }
-  .topbar nav a { color:#9a9a9a; text-decoration:none; }
-  .topbar nav a:hover { color:#e8e8e8; text-decoration:none; }
-  .topbar nav [aria-current] { color:#e8e8e8; font-weight:600; }
-  .topbar nav .lang { color:#f97316; }
-  .sitenav { text-align:center; color:#9a9a9a; font-size:14px; padding:24px 20px 0; }
-  .sitenav a { color:#f97316; text-decoration:none; }
-  .sitenav a:hover { text-decoration:underline; }
-  .sitenav [aria-current] { color:#e8e8e8; font-weight:600; }</style>
+  /* Startseite */
+  main.home { max-width:64rem; padding-top:1.5rem; }
+  .hero { display:grid; gap:2rem; align-items:center; margin:1rem 0 3rem; }
+  .kicker { color:var(--accent); font-weight:600; letter-spacing:.06em; font-size:.85rem; text-transform:uppercase; margin:0 0 .5rem; }
+  .hero h1 { font-size:clamp(1.9rem, 4.5vw, 2.8rem); line-height:1.15; margin:0 0 1rem; }
+  .hero h1 .w { color:var(--accent); }
+  .lead { font-size:1.15rem; color:var(--muted); margin:0 0 1.5rem; max-width:34rem; }
+  .actions { display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; align-items:center; }
+  .cta { display:inline-block; padding:.85rem 1.4rem; background:var(--accent); color:#fff; border-radius:.6rem; text-decoration:none; font-weight:600; }
+  .cta:hover { filter:brightness(1.08); text-decoration:none; }
+  .hint { color:var(--muted); }
+  .more { color:var(--accent); text-decoration:none; font-weight:600; }
+  .more::after { content:" \2192"; }
+  .shot { margin:0; }
+  .shot img { display:block; width:100%; height:auto; border-radius:1.6rem; border:6px solid var(--frame); background:var(--frame); box-shadow:0 18px 40px rgba(0,0,0,.5); }
+  .hero .shot { max-width:240px; margin:0 auto; }
+
+  .cards { display:grid; gap:1rem; margin:0 0 3rem; padding:0; list-style:none; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1.25rem; margin:0; }
+  .card .ico { display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center; background:var(--accent-soft); color:var(--accent); border-radius:10px; margin-bottom:.75rem; }
+  .card h3 { margin:0 0 .35rem; font-size:1.05rem; }
+  .card p { margin:0; color:var(--muted); font-size:.97rem; }
+
+  .section-title { font-size:1.35rem; margin:0 0 1rem; color:var(--text); }
+  .shots { display:flex; gap:1rem; margin:0 -1.25rem 3rem; padding:.25rem 1.25rem 1rem; overflow-x:auto; scroll-snap-type:x mandatory; }
+  .shots figure { flex:0 0 62%; margin:0; scroll-snap-align:start; }
+  .shots figcaption { text-align:center; color:var(--muted); font-size:.92rem; margin-top:.6rem; }
+
+  .note { background:var(--card-alt); border:1px solid var(--border); border-radius:1rem; padding:1.25rem 1.5rem; margin:0 0 2rem; }
+  .note h2 { margin:0 0 .4rem; color:var(--text); font-size:1.15rem; }
+  .note p { margin:0; color:var(--muted); }
+  .note p:last-child { margin-top:.5rem; }
+
+  @media (min-width:760px) {
+    .hero { grid-template-columns:1.3fr 1fr; margin-top:2rem; }
+    .hero .shot { max-width:300px; margin:0 0 0 auto; }
+    .cards { grid-template-columns:repeat(2, 1fr); }
+    .shots { margin:0 0 3rem; padding:0; overflow:visible; }
+    .shots figure { flex:1 1 0; }
+    .note { padding:1.75rem 2rem; }
+  }
+  @media (min-width:1000px) { .cards { grid-template-columns:repeat(3, 1fr); } }
+
+  /* Impressum, 404 */
+  .box { background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1.25rem 1.5rem; margin:0 0 1rem; }
+  .box h2 { margin:0 0 .5rem; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; }
+  .box p, .box address { margin:0; font-style:normal; line-height:1.6; }
+  .top { position:sticky; top:0; z-index:20; padding:.7rem 1.25rem; background:rgba(8,8,8,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+  .top-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; width:100%; max-width:64rem; margin:0 auto; }
+  .brand { display:inline-flex; align-items:center; gap:.6rem; color:var(--text); text-decoration:none; font-weight:700; font-size:1.1rem; }
+  .brand:hover { text-decoration:none; }
+  .brand img { width:32px; height:32px; border-radius:8px; }
+  .brand .w { color:var(--accent); }
+  .desk { display:none; gap:1.25rem; align-items:center; }
+  .desk a, .desk span { color:var(--muted); text-decoration:none; font-size:.95rem; }
+  .desk a:hover { color:var(--accent); text-decoration:none; }
+  .desk [aria-current] { color:var(--text); font-weight:600; }
+  .desk .lang { padding:.25rem .7rem; border:1px solid var(--border); border-radius:999px; }
+  .burger { display:inline-flex; flex-direction:column; justify-content:center; gap:5px; width:44px; height:44px; padding:10px; margin:-6px; cursor:pointer; border-radius:.5rem; background:none; border:0; }
+  .burger i { display:block; height:2px; background:var(--text); border-radius:2px; transition:transform .2s, opacity .2s; }
+  .menu-toggle:checked ~ .top .burger i:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .menu-toggle:checked ~ .top .burger i:nth-child(2) { opacity:0; }
+  .menu-toggle:checked ~ .top .burger i:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .scrim { position:fixed; inset:0; z-index:30; background:rgba(0,0,0,.55); opacity:0; pointer-events:none; transition:opacity .2s; }
+  .drawer { position:fixed; top:0; right:0; bottom:0; z-index:40; width:min(82vw, 20rem); padding:1.25rem; overflow-y:auto; background:var(--card); border-left:1px solid var(--border); transform:translateX(100%); transition:transform .25s ease; box-shadow:-8px 0 24px rgba(0,0,0,.45); }
+  .drawer .drawer-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+  .drawer .drawer-head span { font-weight:700; }
+  .drawer .close { font-size:1.6rem; line-height:1; cursor:pointer; padding:.25rem .5rem; color:var(--text); }
+  .drawer nav { display:flex; flex-direction:column; }
+  .drawer nav a, .drawer nav [aria-current] { padding:.8rem .25rem; border-bottom:1px solid var(--border); color:var(--text); text-decoration:none; font-size:1.05rem; }
+  .drawer nav [aria-current] { color:var(--accent); font-weight:600; }
+  .drawer nav .lang { margin-top:.75rem; color:var(--muted); border:0; }
+  .menu-toggle:checked ~ .scrim { opacity:1; pointer-events:auto; }
+  .menu-toggle:checked ~ .drawer { transform:none; }
+  @media (min-width:760px) { .desk { display:flex; } .burger, .scrim, .drawer { display:none; } }
+  .sitefoot { border-top:1px solid var(--border); color:var(--muted); font-size:.9rem; text-align:left; padding:0; }
+  .sitefoot .foot-inner { max-width:64rem; margin:0 auto; padding:1.25rem 1.25rem 2.5rem; line-height:1.8; }
+  .sitefoot nav { margin-bottom:.35rem; }
+  .sitefoot a { color:var(--accent); text-decoration:none; }
+  .sitefoot a:hover { text-decoration:underline; }
+  .sitefoot [aria-current] { color:var(--text); font-weight:600; }</style>
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/"><img src="/assets/icon.png" alt="" width="28" height="28"><span>Gym<span class="w">Werk</span></span></a>
-  <nav aria-label="Seiten"><a href="/datenschutz/">Datenschutzerklärung</a>
-    <a href="/datenloeschung/">Datenlöschung</a>
-    <a href="/impressum/">Impressum</a>
-    <a class="lang" href="/en/" lang="en">English</a></nav>
-</header>
+<input type="checkbox" id="menu" class="menu-toggle" hidden>
+<header class="top"><div class="top-inner">
+<a class="brand" href="/"><img src="/img/icon.png" alt="" width="32" height="32"><span>Gym<span class="w">Werk</span></span></a>
+<nav class="desk" aria-label="Seiten"><span aria-current="page">Start</span><a href="/datenschutz/">Datenschutzerklärung</a><a href="/datenloeschung/">Datenlöschung</a><a href="/impressum/">Impressum</a><a class="lang" href="/en/" lang="en">English</a></nav>
+<label class="burger" for="menu" role="button" tabindex="0" aria-label="Menü"><i></i><i></i><i></i></label>
+</div></header>
+<label class="scrim" for="menu" aria-hidden="true"></label>
+<aside class="drawer" aria-label="Seiten">
+<div class="drawer-head"><span>Menü</span><label class="close" for="menu" aria-label="Menü schließen">&times;</label></div>
+<nav><span aria-current="page">Start</span><a href="/datenschutz/">Datenschutzerklärung</a><a href="/datenloeschung/">Datenlöschung</a><a href="/impressum/">Impressum</a><a class="lang" href="/en/" lang="en">English</a></nav>
+</aside>
+<main class="home">
 
-<div class="hero">
-  <img class="icon" src="/assets/icon.png" alt="" width="96" height="96">
-  <h1>Gym<span class="w">Werk</span></h1>
-  <p class="lead">Trainingspläne erstellen, Workouts tracken, Fortschritt sehen – alles auf deinem Gerät, ohne Konto.</p>
-  <a class="cta" href="https://play.google.com/store/apps/details?id=com.mgmedia.gymtrackr">Bei Google Play laden</a>
+<section class="hero">
+<div>
+<p class="kicker">Trainingstagebuch für Android und Wear OS</p>
+<h1>Dein Training. Dein Fortschritt. <span class="w">Dein Ziel.</span></h1>
+<p class="lead">GymWerk plant deine Einheiten, erfasst jeden Satz mit Gewicht und Wiederholungen und zeigt dir, wie du stärker wirst. Auf dem Handy und direkt am Handgelenk. Ohne Konto, ohne Werbung.</p>
+<p class="actions"><a class="cta" href="https://play.google.com/store/apps/details?id=com.mgmedia.gymtrackr">Bei Google Play laden</a><span class="hint">Kostenlos, ohne Werbung</span></p>
 </div>
-<main>
-  <img class="shot" src="/assets/phone-de.png" alt="GymWerk: laufendes Training und Pausentimer" width="540" height="1000">
-  <div class="grid">
-<div class="card"><h2>Trainingspläne</h2><p>Eigene Pläne mit Tags und Farben, Übungen aus der Bibliothek oder selbst angelegt, nach Muskelgruppen sortiert.</p></div>
-<div class="card"><h2>Training durchführen</h2><p>Jeden Satz live erfassen, mit Burn-Meter, Gewichtsvorschlägen und Pausentimer, der auch bei gesperrtem Handy vibriert.</p></div>
-<div class="card"><h2>Wear OS</h2><p>Sätze direkt am Handgelenk abhaken, Pausen-Countdown sehen und überspringen. Das Handy bleibt in der Tasche.</p></div>
-<div class="card"><h2>Fortschritt</h2><p>Kompletter Verlauf, Gewichtsdiagramme und persönliche Rekorde für jede Übung.</p></div>
-<div class="card"><h2>Backup</h2><p>Alle Daten als Datei exportieren und auf einem neuen Gerät wieder einspielen.</p></div>
-<div class="card"><h2>Privat</h2><p>Keine Werbung, kein Tracking, kein Konto. Trainingsdaten verlassen dein Gerät nicht. Details in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p></div>
-  </div>
+<figure class="shot"><img src="/img/de/08-training-aktiv.png" width="672" height="1496" alt="GymWerk: laufendes Training mit Pausentimer"></figure>
+</section>
+
+<ul class="cards">
+<li class="card"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/><path d="M7 14h4M7 17h7"/></svg></span><h3>Trainingspläne</h3><p>Eigene Pläne mit Tags und Farben. Übungen aus der Bibliothek oder selbst angelegt, nach Muskelgruppen sortiert.</p></li>
+<li class="card"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 10v4M22 10v4"/><rect x="4" y="7" width="3" height="10" rx="1"/><rect x="17" y="7" width="3" height="10" rx="1"/><path d="M7 12h10"/></svg></span><h3>Jeden Satz im Griff</h3><p>Gewicht und Wiederholungen in Sekunden erfasst, mit Burn-Meter und Gewichtsvorschlägen aus dem letzten Training.</p></li>
+<li class="card"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="7" width="12" height="10" rx="3"/><path d="M9 7l.6-4h4.8L15 7M9 17l.6 4h4.8l.6-4M12 10v2.5l1.5 1"/></svg></span><h3>Wear OS</h3><p>Sätze am Handgelenk abhaken, Pausen-Countdown sehen und überspringen. Das Handy bleibt in der Tasche.</p></li>
+<li class="card"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M5 16l4-5 3 3 4-6 3 3"/></svg></span><h3>Fortschritt sichtbar</h3><p>Kompletter Verlauf, Gewichtsdiagramme und persönliche Rekorde für jede Übung.</p></li>
+<li class="card"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="M8 10l4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span><h3>Backup</h3><p>Alle Daten als Datei exportieren und auf einem neuen Gerät wieder einspielen.</p></li>
+<li class="card"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h3>Ohne Konto</h3><p>Keine E-Mail, kein Passwort, kein Tracking. Deine Trainingsdaten verlassen dein Gerät nicht.</p></li>
+</ul>
+
+<h2 class="section-title">So sieht GymWerk aus</h2>
+<div class="shots">
+<figure class="shot"><img src="/img/de/01-plaene.png" width="672" height="1496" loading="lazy" alt=""><figcaption>Pläne, klar organisiert</figcaption></figure>
+<figure class="shot"><img src="/img/de/05-fortschritt.png" width="672" height="1496" loading="lazy" alt=""><figcaption>Gewichtsverlauf je Übung</figcaption></figure>
+<figure class="shot"><img src="/img/de/07-pausenzeit.png" width="672" height="1496" loading="lazy" alt=""><figcaption>Pausentimer mit Erinnerung</figcaption></figure>
+</div>
+
+<section class="note">
+<h2>Bleibt auf dem Gerät</h2>
+<p>Pläne, Übungen und dein Verlauf liegen auf deinem Handy. Auf unseren Server geht nur, was du selbst über die Feedback-Funktion abschickst.</p>
+<p><a class="more" href="/datenschutz/">Was mit deinen Daten passiert</a></p>
+</section>
 </main>
-<nav class="sitenav" aria-label="Seiten"><span aria-current="page">Start</span> · <a href="/datenschutz/">Datenschutzerklärung</a> · <a href="/datenloeschung/">Datenlöschung</a> · <a href="/impressum/">Impressum</a> · <a href="/en/" lang="en">English</a></nav>
-<footer>GymWerk · MG.Media · 2026</footer>
+<footer class="sitefoot"><div class="foot-inner">
+<nav aria-label="Seiten"><span aria-current="page">Start</span> · <a href="/datenschutz/">Datenschutzerklärung</a> · <a href="/datenloeschung/">Datenlöschung</a> · <a href="/impressum/">Impressum</a> · <a class="lang" href="/en/" lang="en">English</a></nav>
+GymWerk &middot; MG.Media &middot; 2026
+</div></footer>
+<script>
+(function(){var m=document.getElementById('menu');if(!m)return;
+document.querySelectorAll('.burger').forEach(function(b){b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();m.checked=!m.checked;}});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')m.checked=false;});})();
+</script>
 </body>
 </html>

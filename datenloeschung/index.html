@@ -85,29 +85,55 @@
   footer { text-align: center; color: #444; font-size: 12px; padding-bottom: 40px; }
   [data-lang="en"] { display: none; }
 
-  .topbar { position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; gap:12px 20px; flex-wrap:wrap; padding:10px 20px; background:rgba(8,8,8,.92); backdrop-filter:blur(8px); border-bottom:1px solid #242424; }
-  .topbar .brand { display:inline-flex; align-items:center; gap:10px; color:#e8e8e8; font-weight:700; font-size:17px; text-decoration:none; }
-  .topbar .brand img { width:28px; height:28px; border-radius:7px; }
-  .topbar .brand .w { color:#f97316; }
-  .topbar nav { display:flex; flex-wrap:wrap; gap:4px 18px; font-size:14px; }
-  .topbar nav a { color:#9a9a9a; text-decoration:none; }
-  .topbar nav a:hover { color:#e8e8e8; text-decoration:none; }
-  .topbar nav [aria-current] { color:#e8e8e8; font-weight:600; }
-  .topbar nav .lang { color:#f97316; }
-  .sitenav { text-align:center; color:#9a9a9a; font-size:14px; padding:24px 20px 0; }
-  .sitenav a { color:#f97316; text-decoration:none; }
-  .sitenav a:hover { text-decoration:underline; }
-  .sitenav [aria-current] { color:#e8e8e8; font-weight:600; }
+  .top { position:sticky; top:0; z-index:20; padding:.7rem 1.25rem; background:rgba(8,8,8,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+  .top-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; width:100%; max-width:64rem; margin:0 auto; }
+  .brand { display:inline-flex; align-items:center; gap:.6rem; color:var(--text); text-decoration:none; font-weight:700; font-size:1.1rem; }
+  .brand:hover { text-decoration:none; }
+  .brand img { width:32px; height:32px; border-radius:8px; }
+  .brand .w { color:var(--accent); }
+  .desk { display:none; gap:1.25rem; align-items:center; }
+  .desk a, .desk span { color:var(--muted); text-decoration:none; font-size:.95rem; }
+  .desk a:hover { color:var(--accent); text-decoration:none; }
+  .desk [aria-current] { color:var(--text); font-weight:600; }
+  .desk .lang { padding:.25rem .7rem; border:1px solid var(--border); border-radius:999px; }
+  .burger { display:inline-flex; flex-direction:column; justify-content:center; gap:5px; width:44px; height:44px; padding:10px; margin:-6px; cursor:pointer; border-radius:.5rem; background:none; border:0; }
+  .burger i { display:block; height:2px; background:var(--text); border-radius:2px; transition:transform .2s, opacity .2s; }
+  .menu-toggle:checked ~ .top .burger i:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .menu-toggle:checked ~ .top .burger i:nth-child(2) { opacity:0; }
+  .menu-toggle:checked ~ .top .burger i:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+  .scrim { position:fixed; inset:0; z-index:30; background:rgba(0,0,0,.55); opacity:0; pointer-events:none; transition:opacity .2s; }
+  .drawer { position:fixed; top:0; right:0; bottom:0; z-index:40; width:min(82vw, 20rem); padding:1.25rem; overflow-y:auto; background:var(--card); border-left:1px solid var(--border); transform:translateX(100%); transition:transform .25s ease; box-shadow:-8px 0 24px rgba(0,0,0,.45); }
+  .drawer .drawer-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+  .drawer .drawer-head span { font-weight:700; }
+  .drawer .close { font-size:1.6rem; line-height:1; cursor:pointer; padding:.25rem .5rem; color:var(--text); }
+  .drawer nav { display:flex; flex-direction:column; }
+  .drawer nav a, .drawer nav [aria-current] { padding:.8rem .25rem; border-bottom:1px solid var(--border); color:var(--text); text-decoration:none; font-size:1.05rem; }
+  .drawer nav [aria-current] { color:var(--accent); font-weight:600; }
+  .drawer nav .lang { margin-top:.75rem; color:var(--muted); border:0; }
+  .menu-toggle:checked ~ .scrim { opacity:1; pointer-events:auto; }
+  .menu-toggle:checked ~ .drawer { transform:none; }
+  @media (min-width:760px) { .desk { display:flex; } .burger, .scrim, .drawer { display:none; } }
+  .sitefoot { border-top:1px solid var(--border); color:var(--muted); font-size:.9rem; text-align:left; padding:0; }
+  .sitefoot .foot-inner { max-width:64rem; margin:0 auto; padding:1.25rem 1.25rem 2.5rem; line-height:1.8; }
+  .sitefoot nav { margin-bottom:.35rem; }
+  .sitefoot a { color:var(--accent); text-decoration:none; }
+  .sitefoot a:hover { text-decoration:underline; }
+  .sitefoot [aria-current] { color:var(--text); font-weight:600; }
 </style>
+<link rel="icon" href="/img/icon.png" type="image/png">
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="/"><img src="/assets/icon.png" alt="" width="28" height="28"><span>Gym<span class="w">Werk</span></span></a>
-  <nav aria-label="Seiten"><a href="/datenschutz/">Datenschutzerklärung</a>
-    <span aria-current="page">Datenlöschung</span>
-    <a href="/impressum/">Impressum</a>
-    <a class="lang" href="/en/" lang="en">English</a></nav>
-</header>
+<input type="checkbox" id="menu" class="menu-toggle" hidden>
+<header class="top"><div class="top-inner">
+<a class="brand" href="/"><img src="/img/icon.png" alt="" width="32" height="32"><span>Gym<span class="w">Werk</span></span></a>
+<nav class="desk" aria-label="Seiten"><a href="/">Start</a><a href="/datenschutz/">Datenschutzerklärung</a><span aria-current="page">Datenlöschung</span><a href="/impressum/">Impressum</a><a class="lang" href="/en/data-deletion/" lang="en">English</a></nav>
+<label class="burger" for="menu" role="button" tabindex="0" aria-label="Menü"><i></i><i></i><i></i></label>
+</div></header>
+<label class="scrim" for="menu" aria-hidden="true"></label>
+<aside class="drawer" aria-label="Seiten">
+<div class="drawer-head"><span>Menü</span><label class="close" for="menu" aria-label="Menü schließen">&times;</label></div>
+<nav><a href="/">Start</a><a href="/datenschutz/">Datenschutzerklärung</a><span aria-current="page">Datenlöschung</span><a href="/impressum/">Impressum</a><a class="lang" href="/en/data-deletion/" lang="en">English</a></nav>
+</aside>
 
 <div class="hero">
   <div class="badge">GymWerk · MG.Media</div>
@@ -240,8 +266,15 @@
 
 </main>
 
-<nav class="sitenav" aria-label="Seiten"><a href="/">Start</a> · <a href="/datenschutz/">Datenschutzerklärung</a> · <span aria-current="page">Datenlöschung</span> · <a href="/impressum/">Impressum</a> · <a href="/en/" lang="en">English</a></nav>
-<footer>GymWerk · MG.Media · 2026</footer>
+<footer class="sitefoot"><div class="foot-inner">
+<nav aria-label="Seiten"><a href="/">Start</a> · <a href="/datenschutz/">Datenschutzerklärung</a> · <span aria-current="page">Datenlöschung</span> · <a href="/impressum/">Impressum</a> · <a class="lang" href="/en/data-deletion/" lang="en">English</a></nav>
+GymWerk &middot; MG.Media &middot; 2026
+</div></footer>
+<script>
+(function(){var m=document.getElementById('menu');if(!m)return;
+document.querySelectorAll('.burger').forEach(function(b){b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();m.checked=!m.checked;}});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')m.checked=false;});})();
+</script>
 
 <script>
   (function () {
