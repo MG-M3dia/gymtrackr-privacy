@@ -1,90 +1,80 @@
 <!DOCTYPE html>
-<html lang="en" data-default-lang="en">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Data Deletion – GymWerk</title>
+<meta name="description" content="Data Deletion of the GymWerk app (MG.Media)">
+<meta name="theme-color" content="#080808">
+<link rel="icon" href="/img/icon.png" type="image/png">
 <style>
-  :root {
-    --bg: #080808;
-    --card: #141414;
-    --border: #242424;
-    --accent: #f97316;
-    --text: #e8e8e8;
-    --muted: #9a9a9a;
-  }
-  * { box-sizing: border-box; }
-  body {
-    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-  }
-  .hero {
-    padding: 56px 20px 40px;
-    text-align: center;
-    background: linear-gradient(180deg, #141414 0%, #080808 100%);
-    border-bottom: 1px solid var(--border);
-  }
-  .hero h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: -0.02em; }
-  .hero .badge {
-    display: inline-block;
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .hero .meta { color: var(--muted); font-size: 14px; }
-  .langswitch {
-    display: inline-flex;
-    gap: 4px;
-    margin-bottom: 22px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 4px;
-  }
-  .langswitch button {
-    appearance: none;
-    border: 0;
-    background: transparent;
-    color: var(--muted);
-    font: inherit;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 6px 16px;
-    border-radius: 999px;
-    cursor: pointer;
-  }
-  .langswitch button.active { background: var(--accent); color: #fff; }
-  main { max-width: 680px; margin: 0 auto; padding: 40px 20px 80px; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px 26px;
-    margin-bottom: 16px;
-  }
-  .card h2 {
-    margin: 0 0 12px;
-    font-size: 16px;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .card p, .card li { font-size: 15px; line-height: 1.65; color: var(--text); }
-  .card ul, .card ol { margin: 8px 0 0; padding-left: 20px; }
-  .card p { margin: 0 0 10px; }
-  .card p:last-child { margin-bottom: 0; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .contact-line { color: var(--muted); font-size: 14px; line-height: 1.6; }
-  footer { text-align: center; color: #444; font-size: 12px; padding-bottom: 40px; }
-  [data-lang="en"] { display: none; }
+  :root { --bg:#080808; --card:#141414; --card-alt:#1a1917; --border:#242424; --accent:#f97316; --accent-soft:#2a1a0f; --text:#e8e8e8; --muted:#9a9a9a; --frame:#1a1a1c; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; }
+  a { color:var(--accent); }
+  h1 { font-size:1.75rem; line-height:1.25; margin:0 0 .5rem; }
+  h2 { font-size:1.15rem; margin:2.25rem 0 .5rem; color:var(--accent); }
+  p, li { color:var(--text); }
+  strong { font-weight:650; }
+  main { max-width:44rem; margin:0 auto; padding:2rem 1.25rem 4rem; }
 
+  /* Startseite */
+  main.home { max-width:64rem; padding-top:1.5rem; }
+  .hero { display:grid; gap:2rem; align-items:center; margin:1rem 0 3rem; }
+  .kicker { color:var(--accent); font-weight:600; letter-spacing:.06em; font-size:.85rem; text-transform:uppercase; margin:0 0 .5rem; }
+  .hero h1 { font-size:clamp(1.9rem, 4.5vw, 2.8rem); line-height:1.15; margin:0 0 1rem; }
+  .hero h1 .w { color:var(--accent); }
+  .lead { font-size:1.15rem; color:var(--muted); margin:0 0 1.5rem; max-width:34rem; }
+  .actions { display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; align-items:center; }
+  .cta { display:inline-block; padding:.85rem 1.4rem; background:var(--accent); color:#fff; border-radius:.6rem; text-decoration:none; font-weight:600; }
+  .cta:hover { filter:brightness(1.08); text-decoration:none; }
+  .hint { color:var(--muted); }
+  .more { color:var(--accent); text-decoration:none; font-weight:600; }
+  .more::after { content:" \2192"; }
+  .shot { margin:0; }
+  .shot img { display:block; width:100%; height:auto; border-radius:1.6rem; border:6px solid var(--frame); background:var(--frame); box-shadow:0 18px 40px rgba(0,0,0,.5); }
+  .hero .shot { max-width:240px; margin:0 auto; }
+
+  .cards { display:grid; gap:1rem; margin:0 0 3rem; padding:0; list-style:none; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1.25rem; margin:0; }
+  .card .ico { display:inline-flex; width:40px; height:40px; align-items:center; justify-content:center; background:var(--accent-soft); color:var(--accent); border-radius:10px; margin-bottom:.75rem; }
+  .card h3 { margin:0 0 .35rem; font-size:1.05rem; }
+  .card p { margin:0; color:var(--muted); font-size:.97rem; }
+
+  .section-title { font-size:1.35rem; margin:0 0 1rem; color:var(--text); }
+  .shots { display:flex; gap:1rem; margin:0 -1.25rem 3rem; padding:.25rem 1.25rem 1rem; overflow-x:auto; scroll-snap-type:x mandatory; }
+  .shots figure { flex:0 0 62%; margin:0; scroll-snap-align:start; }
+  .shots figcaption { text-align:center; color:var(--muted); font-size:.92rem; margin-top:.6rem; }
+
+  .note { background:var(--card-alt); border:1px solid var(--border); border-radius:1rem; padding:1.25rem 1.5rem; margin:0 0 2rem; }
+  .note h2 { margin:0 0 .4rem; color:var(--text); font-size:1.15rem; }
+  .note p { margin:0; color:var(--muted); }
+  .note p:last-child { margin-top:.5rem; }
+
+  @media (min-width:760px) {
+    .hero { grid-template-columns:1.3fr 1fr; margin-top:2rem; }
+    .hero .shot { max-width:300px; margin:0 0 0 auto; }
+    .cards { grid-template-columns:repeat(2, 1fr); }
+    .shots { margin:0 0 3rem; padding:0; overflow:visible; }
+    .shots figure { flex:1 1 0; }
+    .note { padding:1.75rem 2rem; }
+  }
+  @media (min-width:1000px) { .cards { grid-template-columns:repeat(3, 1fr); } }
+
+  /* Rechtstexte als schlichtes Dokument */
+  .doc h1 { font-size:1.9rem; margin-bottom:.25rem; }
+  .doc .stand { color:var(--muted); margin:0 0 2rem; }
+  .doc h2 { font-size:1.15rem; margin:2.25rem 0 .5rem; }
+  .doc p { margin:0 0 .75rem; }
+  .doc ul, .doc ol { padding-left:1.25rem; margin:0 0 .75rem; }
+  .doc li { margin:.35rem 0; }
+  .doc address { font-style:normal; line-height:1.7; }
+
+  /* Impressum, 404 */
+  .box { background:var(--card); border:1px solid var(--border); border-radius:1rem; padding:1.25rem 1.5rem; margin:0 0 1rem; }
+  .box h2 { margin:0 0 .5rem; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; }
+  .box p, .box address { margin:0; font-style:normal; line-height:1.6; }
   .top { position:sticky; top:0; z-index:20; padding:.7rem 1.25rem; background:rgba(8,8,8,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
   .top-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; width:100%; max-width:64rem; margin:0 auto; }
   .brand { display:inline-flex; align-items:center; gap:.6rem; color:var(--text); text-decoration:none; font-weight:700; font-size:1.1rem; }
@@ -118,9 +108,7 @@
   .sitefoot nav { margin-bottom:.35rem; }
   .sitefoot a { color:var(--accent); text-decoration:none; }
   .sitefoot a:hover { text-decoration:underline; }
-  .sitefoot [aria-current] { color:var(--text); font-weight:600; }
-</style>
-<link rel="icon" href="/img/icon.png" type="image/png">
+  .sitefoot [aria-current] { color:var(--text); font-weight:600; }</style>
 </head>
 <body>
 <input type="checkbox" id="menu" class="menu-toggle" hidden>
@@ -134,138 +122,51 @@
 <div class="drawer-head"><span>Menu</span><label class="close" for="menu" aria-label="Close menu">&times;</label></div>
 <nav><a href="/en/">Home</a><a href="/en/privacy/">Privacy Policy</a><span aria-current="page">Data Deletion</span><a href="/en/imprint/">Imprint</a><a class="lang" href="/datenloeschung/" lang="de">Deutsch</a></nav>
 </aside>
+<main class="doc">
+<h1>Data Deletion</h1>
+<p class="stand">Last updated: 11 September 2026</p>
+<h2>In short</h2>
+<p>
+  GymWerk has <strong>no user account</strong>. Your workout data (plans, exercises, history, records) lives
+  <strong>exclusively on your device</strong> and is never transmitted to us. The only data on our server is what
+  you deliberately sent through the feedback function. So there are two ways to delete data.
+</p>
 
-<div class="hero">
-  <div class="badge">GymWerk · MG.Media</div>
-  <h1><span data-lang="de">Datenlöschung</span><span data-lang="en">Data Deletion</span></h1>
-  <div class="meta">
-    <span data-lang="de">Stand: 11. September 2026</span>
-    <span data-lang="en">Last updated: 11 September 2026</span>
-  </div>
-</div>
+<h2>1. Delete data on your device</h2>
+<p>You do this yourself, immediately and without us:</p>
+<ul>
+  <li><strong>Individual entries:</strong> plans, exercises and history entries can be deleted in the app (long-press the entry, or open it and choose "Delete").</li>
+  <li><strong>Everything at once:</strong> uninstall the app – or go to Android Settings → Apps → GymWerk → Storage and tap "Clear data". The app is then empty, as if freshly installed.</li>
+  <li><strong>Backups:</strong> if you exported a backup file via Settings → Data, that file is wherever you saved it (e.g. Downloads or a cloud drive). Delete it there yourself.</li>
+</ul>
+<p>We have no access to this data and therefore can neither view it nor delete it for you.</p>
 
-<main>
+<h2>2. Have your feedback deleted from the server</h2>
+<p>
+  If you sent a message via "Feedback &amp; suggestions" in the app, you can request its deletion at any time:
+</p>
+<ol>
+  <li>Email <a href="mailto:support.mgmedia@gmail.com?subject=Data%20deletion%20GymWerk">support.mgmedia@gmail.com</a> with the subject "Data deletion GymWerk".</li>
+  <li>Tell us the approximate date of your feedback and, if you provided one, the name. A snippet of the message text helps us find the right entry.</li>
+  <li>We delete the entry completely and confirm by email – within 30 days at the latest, usually much sooner.</li>
+</ol>
+<p>No copy is kept. Technical backups held by our processor are overwritten on a rolling basis, after 30 days at the latest.</p>
 
-  <div style="text-align:center;">
-    <div class="langswitch" role="group" aria-label="Language">
-      <button type="button" data-set-lang="de">DE</button>
-      <button type="button" data-set-lang="en">EN</button>
-    </div>
-  </div>
+<h2>Which data is affected</h2>
+<p><strong>On the server</strong> (only if you sent feedback): message text, an optional name, app version, platform, language setting, timestamp. Stored with Supabase in Frankfurt, Germany (EU), until you request deletion or we have finished handling your feedback.</p>
+<p><strong>On your device:</strong> all workout data and settings. Keeping or deleting it is entirely up to you.</p>
+<p>Further details are in the <a href="/datenschutz/">privacy policy</a>.</p>
 
-  <!-- ============ DEUTSCH ============ -->
-  <div data-lang="de">
-    <div class="card">
-      <h2>Kurz gesagt</h2>
-      <p>
-        GymWerk hat <strong>kein Nutzerkonto</strong>. Deine Trainingsdaten (Pläne, Übungen, Verlauf, Rekorde) liegen
-        <strong>ausschließlich auf deinem Gerät</strong> und werden nie an uns übertragen. Auf unserem Server liegt
-        nur, was du über die Feedback-Funktion bewusst abgeschickt hast. Entsprechend gibt es zwei Wege, Daten zu löschen.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>1. Daten auf deinem Gerät löschen</h2>
-      <p>Das erledigst du selbst, sofort und ohne uns:</p>
-      <ul>
-        <li><strong>Einzelne Einträge:</strong> Pläne, Übungen und Verlaufseinträge lassen sich in der App löschen (Eintrag lange drücken bzw. öffnen und „Löschen" wählen).</li>
-        <li><strong>Alles auf einmal:</strong> App deinstallieren – oder in den Android-Einstellungen unter Apps → GymWerk → Speicher auf „Daten löschen" tippen. Danach ist die App leer, als wäre sie neu installiert.</li>
-        <li><strong>Backups:</strong> Hast du über Einstellungen → Daten ein Backup als Datei exportiert, liegt diese Datei dort, wo du sie gespeichert hast (z. B. Downloads oder Cloud-Speicher). Lösche sie dort selbst.</li>
-      </ul>
-      <p>Wir haben auf diese Daten keinen Zugriff und können sie deshalb weder einsehen noch für dich löschen.</p>
-    </div>
-
-    <div class="card">
-      <h2>2. Feedback auf dem Server löschen lassen</h2>
-      <p>
-        Wenn du über „Feedback &amp; Vorschläge" in der App eine Nachricht abgeschickt hast, kannst du deren Löschung
-        jederzeit anfordern:
-      </p>
-      <ol>
-        <li>Schreib eine E-Mail an <a href="mailto:support.mgmedia@gmail.com?subject=Datenl%C3%B6schung%20GymWerk">support.mgmedia@gmail.com</a> mit dem Betreff „Datenlöschung GymWerk".</li>
-        <li>Nenne das ungefähre Datum deines Feedbacks und, falls du einen angegeben hast, den Namen. Ein Auszug aus dem Nachrichtentext hilft uns, den richtigen Eintrag zu finden.</li>
-        <li>Wir löschen den Eintrag vollständig und bestätigen dir das per E-Mail – spätestens innerhalb von 30 Tagen, in der Regel deutlich schneller.</li>
-      </ol>
-      <p>Es bleibt keine Kopie zurück. Technische Sicherungskopien unseres Auftragsverarbeiters werden turnusmäßig überschrieben, spätestens nach 30 Tagen.</p>
-    </div>
-
-    <div class="card">
-      <h2>Welche Daten betroffen sind</h2>
-      <p><strong>Auf dem Server</strong> (nur bei abgeschicktem Feedback): Nachrichtentext, optional ein Name, App-Version, Plattform, Spracheinstellung, Zeitpunkt. Gespeichert bei Supabase in Frankfurt am Main (EU), bis du die Löschung anforderst oder wir die Rückmeldung abschließend bearbeitet haben.</p>
-      <p><strong>Auf deinem Gerät:</strong> alle Trainingsdaten und Einstellungen. Verbleib und Löschung liegen allein bei dir.</p>
-      <p>Weitere Einzelheiten stehen in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
-    </div>
-
-    <div class="card">
-      <h2>Verantwortlicher</h2>
-      <p class="contact-line">
-        MG.Media<br>
-        Matthias Geisler<br>
-        Kurt-Schumacher-Straße 74<br>
-        67663 Kaiserslautern<br>
-        Deutschland<br>
-        E-Mail: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- ============ ENGLISH ============ -->
-  <div data-lang="en">
-    <div class="card">
-      <h2>In short</h2>
-      <p>
-        GymWerk has <strong>no user account</strong>. Your workout data (plans, exercises, history, records) lives
-        <strong>exclusively on your device</strong> and is never transmitted to us. The only data on our server is what
-        you deliberately sent through the feedback function. So there are two ways to delete data.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>1. Delete data on your device</h2>
-      <p>You do this yourself, immediately and without us:</p>
-      <ul>
-        <li><strong>Individual entries:</strong> plans, exercises and history entries can be deleted in the app (long-press the entry, or open it and choose "Delete").</li>
-        <li><strong>Everything at once:</strong> uninstall the app – or go to Android Settings → Apps → GymWerk → Storage and tap "Clear data". The app is then empty, as if freshly installed.</li>
-        <li><strong>Backups:</strong> if you exported a backup file via Settings → Data, that file is wherever you saved it (e.g. Downloads or a cloud drive). Delete it there yourself.</li>
-      </ul>
-      <p>We have no access to this data and therefore can neither view it nor delete it for you.</p>
-    </div>
-
-    <div class="card">
-      <h2>2. Have your feedback deleted from the server</h2>
-      <p>
-        If you sent a message via "Feedback &amp; suggestions" in the app, you can request its deletion at any time:
-      </p>
-      <ol>
-        <li>Email <a href="mailto:support.mgmedia@gmail.com?subject=Data%20deletion%20GymWerk">support.mgmedia@gmail.com</a> with the subject "Data deletion GymWerk".</li>
-        <li>Tell us the approximate date of your feedback and, if you provided one, the name. A snippet of the message text helps us find the right entry.</li>
-        <li>We delete the entry completely and confirm by email – within 30 days at the latest, usually much sooner.</li>
-      </ol>
-      <p>No copy is kept. Technical backups held by our processor are overwritten on a rolling basis, after 30 days at the latest.</p>
-    </div>
-
-    <div class="card">
-      <h2>Which data is affected</h2>
-      <p><strong>On the server</strong> (only if you sent feedback): message text, an optional name, app version, platform, language setting, timestamp. Stored with Supabase in Frankfurt, Germany (EU), until you request deletion or we have finished handling your feedback.</p>
-      <p><strong>On your device:</strong> all workout data and settings. Keeping or deleting it is entirely up to you.</p>
-      <p>Further details are in the <a href="/datenschutz/">privacy policy</a>.</p>
-    </div>
-
-    <div class="card">
-      <h2>Data Controller</h2>
-      <p class="contact-line">
-        MG.Media<br>
-        Matthias Geisler<br>
-        Kurt-Schumacher-Straße 74<br>
-        67663 Kaiserslautern<br>
-        Germany<br>
-        Email: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
-      </p>
-    </div>
-  </div>
-
+<h2>Data Controller</h2>
+<p>
+  MG.Media<br>
+  Matthias Geisler<br>
+  Kurt-Schumacher-Straße 74<br>
+  67663 Kaiserslautern<br>
+  Germany<br>
+  Email: <a href="mailto:support.mgmedia@gmail.com">support.mgmedia@gmail.com</a>
+</p>
 </main>
-
 <footer class="sitefoot"><div class="foot-inner">
 <nav aria-label="Pages"><a href="/en/">Home</a> · <a href="/en/privacy/">Privacy Policy</a> · <span aria-current="page">Data Deletion</span> · <a href="/en/imprint/">Imprint</a> · <a class="lang" href="/datenloeschung/" lang="de">Deutsch</a></nav>
 GymWerk &middot; MG.Media &middot; 2026
@@ -275,43 +176,5 @@ GymWerk &middot; MG.Media &middot; 2026
 document.querySelectorAll('.burger').forEach(function(b){b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();m.checked=!m.checked;}});});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')m.checked=false;});})();
 </script>
-
-<script>
-  (function () {
-    var titles = { de: 'Datenlöschung – GymWerk', en: 'Data Deletion – GymWerk' };
-    function setLang(lang) {
-      if (lang !== 'de' && lang !== 'en') lang = 'de';
-      document.documentElement.lang = lang;
-      document.title = titles[lang];
-      var nodes = document.querySelectorAll('[data-lang]');
-      for (var i = 0; i < nodes.length; i++) {
-        var el = nodes[i];
-        if (el.getAttribute('data-lang') === lang) {
-          el.style.display = (el.tagName === 'SPAN') ? 'inline' : 'block';
-        } else {
-          el.style.display = 'none';
-        }
-      }
-      var btns = document.querySelectorAll('[data-set-lang]');
-      for (var j = 0; j < btns.length; j++) {
-        btns[j].classList.toggle('active', btns[j].getAttribute('data-set-lang') === lang);
-      }
-      // Gleicher Schlüssel wie die Datenschutzerklärung, damit die Sprachwahl auf beiden Seiten gilt.
-      try { localStorage.setItem('gt_privacy_lang', lang); } catch (e) {}
-    }
-    // Auf gymwerk.app hat jede Sprache eine eigene Adresse (data-default-lang gesetzt
-    // vom Generator tools/site/build.js); ohne Attribut entscheidet ?lang, Merker, Browser.
-    var forced = document.documentElement.getAttribute('data-default-lang');
-    var q = /[?&]lang=(de|en)/.exec(location.search);
-    var saved;
-    try { saved = localStorage.getItem('gt_privacy_lang'); } catch (e) {}
-    var initial = forced || (q && q[1]) || saved || ((navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en');
-    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
-      b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
-    });
-    setLang(initial);
-  })();
-</script>
-
 </body>
 </html>
